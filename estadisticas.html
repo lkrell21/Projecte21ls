@@ -26,7 +26,7 @@
         
         <div id="body">
             <div class="first-body">
-                <canvas id="myChart" width="500" height="300"></canvas>
+                <canvas id="myChart" width="700" height="500"></canvas>
                 <script>
                     var ctx = document.getElementById('myChart').getContext('2d');
                   var chart = new Chart(ctx, {
@@ -35,19 +35,16 @@
                   datasets: [{
                   data: [10,18,10, 8, 4],
                   backgroundColor: ['#A051FF', '#FFC3E5', '#98F59C','#FF9430'],
-                  label: 'Comparacion de navegadores'}],
-                  labels: ['fumadores','no fumadores','fumadores fiesteros','ex-fumadores']},
+                  label: 'Nuevas Proteinas'}],
+                  labels: ['2019','2020','2021','2022']},
                   options: {responsive: false}
                   });
               </script>
             </div>
             <div class="first-body">
-                <img src="https://chart.googleapis.com/chart?cht=bhg&chs=475x230&chd=t:16,19,28,7&chxl=1:|ex-fumadores|fumadores+fiesteros|no+fumadores|fumadores&chxt=x,y&chco=785205|1BC8C3|C60808|6C3483&chtt=Mis+amigos+fumadores,+no+fumadores,+de+fiesta+y+ex-fumadores" alt="grafica">
-            </div>
-            <div class="first-body">
-                <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+                <canvas id="myChart2" style="width: 700px;;height: 500px;text-align: center;"></canvas>
                 <script>
-                    var xValues = ["fumadores", "no fumadores", "fumadores fiesteros", "ex-fumadores"];
+                    var xValues = ["2019", "2020", "2021", "2022"];
                     var yValues = [7, 28, 19, 16,];
                     var barColors = [
                       "#A051FF",
@@ -68,7 +65,7 @@
                       options: {
                         title: {
                           display: true,
-                          text: "World Wide Wine Production 2018"
+                          text: "Farmacos nuevos"
                         }
                       }
                     });
