@@ -26,48 +26,32 @@
         </header>
 
         <div id="body">
-            <div class="search-body">
-                <div id="form-div">
-                    <form id="form">
+            <div id="divEliminar">
+                <div id="eliminarBody">
+                    <div id="eliminar-div">
+                        <h2 id="confirmacionEliminacion">Segur que vol eliminar?</h2>
+                        <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
+                        <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
+                        <button id="aceptar" onclick="cancelarEliminar()">Acceptar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="first-body">
+                <img class="body-images" src="img/proteina.jpg" />
+                <div class="inner-first-body"style="margin-left:0px;">
+
+                    <button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button>                
+                    <h1>NOM FÀRMAC</h1>
+                    <form id="form" style="margin-left:0px;">
                         <input type="text" class="search-form" placeholder="Nom" />
                         <input type="text" class="search-form" placeholder="Resolució" />
                         <input type="text" class="search-form" placeholder="Especie" />
                         <input type="text" class="search-form" placeholder="Data" />
                         <input type="text" class="search-form" placeholder="Metode" />
                         <input type="text" class="search-form" placeholder="Codi de la proteïna" />
-                        <input type="submit" class="search-button" value="Cerca" />
+                        <input type="submit" class="search-button" value="Guardar" />
                     </form>
-                </div>
-            </div>
-            <div id="divEliminar" >
-                <div id="eliminarBody">
-                    <div id="eliminar-div">
-                        <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
-                            <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
-                            <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                            <button id="aceptar" onclick="cancelarEliminar()">Acceptar</button>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" />
-                <div class="inner-first-body">
 
-                    <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
-                   
-                    <a href="editar_proteina.html">
-                        <button class="button" id="editar">Editar</button>
-                    </a>
-                    <h1>NOM PROTEÏNA</h1>
-                    <ul align="left">
-                        <li>Nom</li>
-                        <li>Espècie</li>
-                        <li>Codi</li>
-                        <li>Mètode</li>
-                        <li>Data</li>
-                        <li>Resolució</li>
-                    </ul>
                 </div>
             </div>            
         </div>

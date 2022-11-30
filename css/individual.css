@@ -89,3 +89,41 @@ text-align: center;
 #eliminar{
   background-color: rgb(218, 142, 148);
 }
+#divEliminar{
+    position:absolute;
+    margin-left:30%;
+    display:none;
+    width:40%;
+    border-radius:20px;
+    background-color:white;
+    border: grey 2px solid;
+}
+#eliminar-div {
+    display: block;
+    align-content: center;
+    justify-content: center;
+    width:100%;
+    margin:0;
+}
+.buttonEspecial {
+    margin-top: 10px;
+    height: 45px;
+    align-self:center;
+    display:block;
+}
+#eliminarBody {
+    height: 100px;
+    background-color: white;
+    border-radius: 20px;
+    justify-content:center;
+    align-items:center;
+    display:block;
+}
+#cancelar {
+    background-color: rgb(142, 218, 172);
+}
+
+#eliminar2 {
+    background-color: rgb(218, 142, 148);
+}
+
