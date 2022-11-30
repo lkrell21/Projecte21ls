@@ -114,7 +114,7 @@ button {
   }
   
   .footer h3 span{
-    color:  #28B463;
+    color:  #5499C7;
   }
   
   /* Footer links */
@@ -126,7 +126,7 @@ button {
   }
 
   .footer .footer-links a:hover{
-    color: #28B463;
+    color: #5499C7;
   }
   
   .footer .footer-links a{
@@ -184,7 +184,7 @@ button {
   }
 
   .footer .footer-center p a:hover{
-    color:  #28B463;
+    color:  #5499C7;
   }
 
   .footer .footer-links a:before {
@@ -247,7 +247,7 @@ button {
     margin-top: 55px;
 }
   .footer .footer-icons a:hover{
-    color: #28B463;
+    color: #5499C7;
   }
   
   /* If you don't want the footer to be responsive, remove these media queries */
