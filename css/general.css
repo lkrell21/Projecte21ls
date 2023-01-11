@@ -65,7 +65,7 @@ nav a:hover {
     color: #1E8449;
   }
 */
-button {
+#btnLogin {
     color: black;
     padding: 15px 15px;
     margin-top: -45px;
@@ -78,7 +78,7 @@ button {
     border-color: #B3B6B7;
 }
 
-    button:hover {
+    #btnLogin:hover {
         background-color: #5499C7;
     }
 
@@ -249,7 +249,42 @@ button {
   .footer .footer-icons a:hover{
     color: #5499C7;
   }
+  .btnNormal{
+    padding: 15px 15px;
+    color:#33383b;
+    background-color: #7FB3D5;
+    border-radius: 15px;
+    border-color: white;
+    cursor: pointer;
+    line-height: 1;
+    float: right;
+    background-color: #7FB3D5;
+    /* background-color: #D2FFE2;*/
+    border-radius: 10px;
+
+  }
+  .btnNormal:hover{
+    background-color: #5499C7;
   
+  }
+  .barraBotonesLink{
+    display:inline-block;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-right: 0px;
+  }
+  .menuBotones {
+    height: 70px;
+    width: 97.5%;
+    background-color: white;
+    border-radius: 30px;
+    margin-top: 0px;
+    margin-left: 20px;
+    margin-right: 15px;
+    margin-bottom: 0px;
+    display:inline-block;
+  }
   /* If you don't want the footer to be responsive, remove these media queries */
   
   @media (max-width: 880px) {

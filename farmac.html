@@ -21,7 +21,7 @@
             <a href="proteinas.html">Proteinas</a>
         </nav>
         <a href="login.html">
-            <button type="submit">Login</button>
+            <button id="btnLogin">Login</button>
         </a>
         </header>
 
@@ -32,7 +32,7 @@
                         <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
                             <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
                             <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                            <button id="aceptar" onclick="cancelarEliminar()">Acceptar</button>
+                            <button id="aceptar" class="btnNormal" onclick="cancelarEliminar()">Acceptar</button>
                         
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                         <button class="button" id="editar">Editar</button>
                     </a>
                     <h1>NOM FÀRMAC</h1>
-                    <ul align="left">
+                    <ul >
                         <li>Nom</li>
                         <li>Codi</li>
                         <li>SMILES</li>

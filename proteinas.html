@@ -19,23 +19,31 @@
             <a href="proteinas.html">Proteinas</a>
         </nav>
         <a href="login.html">
-            <button type="submit">Login</button>
+            <button id="btnLogin">Login</button>
         </a>
         </header>
 
         <div id="body">
             <div class="search-body">
                 <div id="form-div">
-                    <form id="form">
-                        <input type="text" class="search-form" placeholder="Nom" />
-                        <input type="text" class="search-form" placeholder="Resolució" />
-                        <input type="text" class="search-form" placeholder="Especie" />
-                        <input type="text" class="search-form" placeholder="Data" />
-                        <input type="text" class="search-form" placeholder="Metode" />
-                        <input type="text" class="search-form" placeholder="Codi de la proteïna" />
+                    <form id="form" action="php/consultaProteinas.php" method="post">
+                        <input type="text" class="search-form" placeholder="Nom" name="nom"/>
+                        <input type="text" class="search-form" placeholder="Resolució" name="resolucio"/>
+                        <input type="text" class="search-form" placeholder="Especie" name="especie"/>
+                        <input type="text" class="search-form" placeholder="Data" name="data" />
+                        <input type="text" class="search-form" placeholder="Metode" name="metode"/>
+                        <input type="text" class="search-form" placeholder="Codi de la proteïna" name="idProteina"/>
                         <input type="submit" class="search-button" value="Cerca" />
                     </form>
                 </div>
+            </div>
+            <div class="menuBotones">
+                <a href="crear_proteina.html" class="barraBotonesLink">
+                    <button class="btnNormal">Crear proteïna</button>
+                </a>
+                <a href="misProteinas.html" class="barraBotonesLink">
+                    <button class="btnNormal">Les meves proteïnes</button>
+                </a>
             </div>
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" />

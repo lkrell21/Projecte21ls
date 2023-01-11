@@ -10,6 +10,6 @@ if (!$conexion) die("No ha podido realizarse la conexión".mysqli_connect_error(
 else {
 
 
-    echo "Conexion correcta";
+   //echo "Conexion correcta";
 }
 ?>
