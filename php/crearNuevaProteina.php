@@ -25,10 +25,10 @@
 
     $idProteina=$_POST["idProteina"];
     
-    $sql= "Insert into proteinas Values(".$nom.", ".$resolució.", ".$metode.", "$imatge.", ";
+    $sql= "Insert into proteinas Values(".$nom.", ".$resolució.", ".$metode.", ".$imatge.", ";
     $res = move_uploaded_file($_FILES["imatge"]["tmp_name"], "../img/farmacos/".$imatge);
 
-$sql= "SELECT * FROM proteinas where nombre = '$nom' AND idProteina = '$idProteina'";*/
+$sql= "SELECT * FROM proteinas where nombre = '$nom' AND idProteina = '$idProteina'";
 $resultado = mysqli_query($conexion, $sql);
 //header("Location: ../proteinas.html?resultado=".$resultado);
 if (mysqli_num_rows($resultado) > 0) {
