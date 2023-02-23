@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 11, 2023 at 07:12 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.1.32
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 23-02-2023 a las 17:39:39
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `projecte2`
+-- Base de datos: `projecte2ls`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `farmacos`
+-- Estructura de tabla para la tabla `farmacos`
 --
 
 CREATE TABLE `farmacos` (
@@ -37,10 +37,10 @@ CREATE TABLE `farmacos` (
   `imagen` varchar(100) NOT NULL,
   `descripcion` text NOT NULL,
   `idUsuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `farmacos`
+-- Volcado de datos para la tabla `farmacos`
 --
 
 INSERT INTO `farmacos` (`idFarmaco`, `nombre`, `SMILES`, `InChl`, `fecha`, `estado`, `imagen`, `descripcion`, `idUsuario`) VALUES
@@ -54,7 +54,7 @@ INSERT INTO `farmacos` (`idFarmaco`, `nombre`, `SMILES`, `InChl`, `fecha`, `esta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `proteinas`
+-- Estructura de tabla para la tabla `proteinas`
 --
 
 CREATE TABLE `proteinas` (
@@ -69,10 +69,10 @@ CREATE TABLE `proteinas` (
   `imagen` varchar(50) NOT NULL,
   `descripcion` text NOT NULL,
   `idUsuario` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `proteinas`
+-- Volcado de datos para la tabla `proteinas`
 --
 
 INSERT INTO `proteinas` (`idProteina`, `nombre`, `resolucion`, `especie`, `fecha`, `tipoFichero`, `nombreFichero`, `metodo`, `imagen`, `descripcion`, `idUsuario`) VALUES
@@ -82,7 +82,7 @@ INSERT INTO `proteinas` (`idProteina`, `nombre`, `resolucion`, `especie`, `fecha
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -93,10 +93,10 @@ CREATE TABLE `usuarios` (
   `rol` varchar(50) NOT NULL,
   `fechaAlta` datetime NOT NULL,
   `activo` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `nombre`, `contrasenya`, `email`, `rol`, `fechaAlta`, `activo`) VALUES
@@ -104,11 +104,11 @@ INSERT INTO `usuarios` (`idUsuario`, `nombre`, `contrasenya`, `email`, `rol`, `f
 (2, 'anastasia', '1234', 'anastasia.ruiz@gmail.com', 'usuario', '2023-01-07 17:27:19', 1);
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `farmacos`
+-- Indices de la tabla `farmacos`
 --
 ALTER TABLE `farmacos`
   ADD PRIMARY KEY (`idFarmaco`),
@@ -116,7 +116,7 @@ ALTER TABLE `farmacos`
   ADD KEY `idUsuario` (`idUsuario`) USING BTREE;
 
 --
--- Indexes for table `proteinas`
+-- Indices de la tabla `proteinas`
 --
 ALTER TABLE `proteinas`
   ADD PRIMARY KEY (`idProteina`),
@@ -124,46 +124,46 @@ ALTER TABLE `proteinas`
   ADD KEY `idUsuario` (`idUsuario`) USING BTREE;
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuario`),
   ADD UNIQUE KEY `idUsuario` (`idUsuario`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `farmacos`
+-- AUTO_INCREMENT de la tabla `farmacos`
 --
 ALTER TABLE `farmacos`
   MODIFY `idFarmaco` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
--- AUTO_INCREMENT for table `proteinas`
+-- AUTO_INCREMENT de la tabla `proteinas`
 --
 ALTER TABLE `proteinas`
   MODIFY `idProteina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Restricciones para tablas volcadas
 --
 
 --
--- Constraints for table `farmacos`
+-- Filtros para la tabla `farmacos`
 --
 ALTER TABLE `farmacos`
   ADD CONSTRAINT `farmacos_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE NO ACTION;
 
 --
--- Constraints for table `proteinas`
+-- Filtros para la tabla `proteinas`
 --
 ALTER TABLE `proteinas`
   ADD CONSTRAINT `proteinas_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuarios` (`idUsuario`) ON DELETE CASCADE ON UPDATE NO ACTION;
