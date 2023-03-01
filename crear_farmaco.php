@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="la pagina para crear farmacos">
     <meta name="keywords" content="crear, farmacos, farmaco, guardar, eliminar">
-    <meta name="description" content="en esta pagina, crear farmacor, es donde podras crear, añadir y guardar tu propio farmaco"
+    <meta name="description" content="en esta pagina, crear farmaco, es donde podras crear, añadir y guardar tu propio farmaco">
     <link rel="stylesheet" href="css/individual.css">
     <link rel="stylesheet" href="css/general.css">
     <script type="text/javascript" src="funcions.js"></script>
@@ -85,7 +85,7 @@
             </div>
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">L&Swp@gmail.com</a></p>
+                <p><a href="mailto:support@company.com" title="link al email">L&Swp@gmail.com</a></p>
             </div>
         </div>
 

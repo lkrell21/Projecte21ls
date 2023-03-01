@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="La pagina donde salen las estadisticas de nuestra web">
+    <meta name="keywords" content="estadisticas, graficas, proteinas, farmacos, numero, ultimos años">
+    <meta name="description" content="En esta pagina podremos ver dos graficas que tratan de los ultimos farmacos subidos a la pagina en los ultimos años y el numero de proteinas descubiertas">
     <link rel="stylesheet" href="css/estadisticas.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,7 +25,7 @@
 
         </nav>
         <a href="login.php">
-            <button id="btnLogin">Login</button>
+        <button id="btnLogin" title="link al login">Login</button>
         </a>
         </header>
         
@@ -99,7 +102,7 @@
             </div>
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">L&Swp@gmail.com</a></p>
+                <p><a href="mailto:support@company.com" title="link al email">L&Swp@gmail.com</a></p>
             </div>
         </div>
 
@@ -109,10 +112,10 @@
                 Mejor página web para guardar y crear fármacos y proteínas :D
             </p>
             <div class="footer-icons">
-                <a href="https://es-es.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
-                <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                <a href="web.whatsapp.com"><i class="fa fa-whatsapp"></i></a>
+            <a href="https://es-es.facebook.com/" title="link a la pagina de facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/" title="link a la pagina de twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/" title="link a la pagina de github"><i class="fa fa-github"></i></a>
+                <a href="web.whatsapp.com" title="link al chat directo de whatsapp"><i class="fa fa-whatsapp"></i></a>
 
             </div>
         </div>

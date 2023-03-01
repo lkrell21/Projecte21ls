@@ -21,7 +21,7 @@
 
         </nav>
         <a href="login.php">
-            <button id="btnLogin">Login</button>
+        <button id="btnLogin" title="link al login">Login</button>
         </a>
         </header>
 
@@ -111,7 +111,7 @@
             </div>
             <div>
                 <i class="fa fa-envelope"></i>
-                <p><a href="mailto:support@company.com">L&Swp@gmail.com</a></p>
+                <p><a href="mailto:support@company.com" title="link al email">L&Swp@gmail.com</a></p>
             </div>
         </div>
 
@@ -121,12 +121,10 @@
                 Mejor pagina web para guardar y crear farmacos y proteinas :D
             </p>
             <div class="footer-icons">
-                <a href="https://es-es.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
-                <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                <a href="web.whatsapp.com"><i class="fa fa-whatsapp"></i></a>
-
-
+            <a href="https://es-es.facebook.com/" title="link a la pagina de facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/" title="link a la pagina de twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/" title="link a la pagina de github"><i class="fa fa-github"></i></a>
+                <a href="web.whatsapp.com" title="link al chat directo de whatsapp"><i class="fa fa-whatsapp"></i></a>
             </div>
         </div>
 

@@ -33,7 +33,7 @@
                         <div class="foot-lnk">
                             <a href="#">Forgot Password?</a>
                         </div>
-                        <a href="home.php" class="previous round">‹</a>
+                        <a href="home.php" class="previous round" title="link al home">‹</a>
                     </div>
                 </form>
                 <div class="sign-up-htm">
@@ -64,7 +64,7 @@
                     </a><div class="foot-lnk"><a href="login.php" class="google-plus">
                         <label for="tab-1">Already Member?</label></a>
                     </div>
-                    <a href="home.php" class="previous round">‹</a>
+                    <a href="home.php" class="previous round" title="link al home">‹</a>
                 </div>
             </div>
         </div>
