@@ -30,7 +30,7 @@
 
 $sql= "SELECT * FROM proteinas where nombre = '$nom' AND idProteina = '$idProteina'";
 $resultado = mysqli_query($conexion, $sql);
-//header("Location: ../proteinas.html?resultado=".$resultado);
+//header("Location: ../proteinas.php?resultado=".$resultado);
 if (mysqli_num_rows($resultado) > 0) {
     echo'<form id="form" style="margin-left:0px;" method="post">
     <input type="text" value="true" />
@@ -45,13 +45,13 @@ if (mysqli_num_rows($resultado) > 0) {
 //mostrar la pàgina de inicio con el usuario logado
 while($row = mysqli_fetch_assoc($resultado)) {
     //$datos = $datos.
-    "<div class='first-body'><img class='body-images' src='".$row["imagen"]."'/><div class='inner-first-body'><h1><a href='proteina.html'>".$row["nombre"]."</a></h1><p>
+    "<div class='first-body'><img class='body-images' src='".$row["imagen"]."'/><div class='inner-first-body'><h1><a href='proteina.php'>".$row["nombre"]."</a></h1><p>
                 ".$row["descripcion"]."</p></div></div>";
     //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";
 }
 echo $datos;
 } else echo "Usuario o contraseña incorrecto.";
 
-//header("Location: ../proteinas.html?resultado=".$datos);
+//header("Location: ../proteinas.php?resultado=".$datos);
 ?>
 </body></html>

@@ -13,14 +13,14 @@
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style ="margin-top: 55px;">
-            <a href="home.html">Home</a>
-            <a href="estadisticas.html">Estadísticas</a>
-            <a href="farmacos.html">Fármacos</a>
-            <a href="proteinas.html">Proteínas</a>
+            <a href="home.php">Home</a>
+            <a href="estadisticas.php">Estadísticas</a>
+            <a href="farmacos.php">Fármacos</a>
+            <a href="proteinas.php">Proteínas</a>
             <a href="php/listaUsers.php">Users</a>
 
         </nav>
-        <a href="login.html">
+        <a href="login.php">
             <button type="submit">Login</button>
         </a>
         </header>
@@ -40,17 +40,17 @@
             </div>
         </div>
         <div class="menuBotones">
-            <a href="crear_farmaco.html" class="barraBotonesLink">
+            <a href="crear_farmaco.php" class="barraBotonesLink">
                 <button class="btnNormal">Crear fàrmac</button>
             </a>
-            <a href="misFarmacos.html" class="barraBotonesLink">
+            <a href="misFarmacos.php" class="barraBotonesLink">
                 <button class="btnNormal">Els meus fàrmacs</button>
             </a>
         </div>
         <div class="first-body">
             <img class="body-images" src="img/farmaco.jpg" />
             <div>
-                <h1><a href="farmac.html">NOM FÁRMACO</a></h1>
+                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
                     consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
@@ -60,7 +60,7 @@
         <div class="first-body">
             <img class="body-images" src="img/farmaco.jpg" />
             <div>
-                <h1><a href="farmac.html">NOM FÁRMACO</a></h1>
+                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
                     consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
@@ -71,7 +71,7 @@
         <div class="first-body">
             <img class="body-images" src="img/farmaco.jpg" />
             <div>
-                <h1><a href="farmac.html">NOM FÁRMACO</a></h1>
+                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
                     consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
@@ -81,7 +81,7 @@
         <div class="first-body">
             <img class="body-images" src="img/farmaco.jpg" />
             <div>
-                <h1><a href="farmac.html">NOM FÁRMACO</a></h1>
+                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
                     consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
@@ -94,10 +94,10 @@
             <div class="footer-left">
                 <h3>L&S<span>WebProject</span></h3>
                 <p class="footer-links">
-                    <a href="home.html">Home</a>
-                    <a href="estadisticas.html">Estadísticas</a>
-                    <a href="farmacos.html">Fármacos</a>
-                    <a href="proteinas.html">Proteínas</a>
+                    <a href="home.php">Home</a>
+                    <a href="estadisticas.php">Estadísticas</a>
+                    <a href="farmacos.php">Fármacos</a>
+                    <a href="proteinas.php">Proteínas</a>
                 </p>
             </div>
 

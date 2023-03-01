@@ -14,7 +14,7 @@
     $resultado = mysqli_query($conexion, $sql);
     if (mysqli_num_rows($resultado) > 0) {
         //mostrar la pàgina de inicio con el usuario logado
-        header('Location: ../home.html');
+        header('Location: ../home.php');
     } else
         echo "Usuario o contraseña incorrecto.";
     ?>

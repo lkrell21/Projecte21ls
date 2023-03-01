@@ -9,20 +9,20 @@
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>paginaweb</title>
+    <title>la pagina para crear proteinas</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style ="margin-top: 55px;">
-            <a href="home.html">Home</a>
-            <a href="estadisticas.html">Estadisticas</a>
-            <a href="farmacos.html">Farmacos</a>
-            <a href="proteinas.html">Proteinas</a>
+            <a href="home.php">Home</a>
+            <a href="estadisticas.php">Estadisticas</a>
+            <a href="farmacos.php">Farmacos</a>
+            <a href="proteinas.php">Proteinas</a>
             <a href="php/listaUsers.php">Users</a>
 
         </nav>
-        <a href="login.html">
+        <a href="login.php">
             <button id="btnLogin">Login</button>
         </a>
         </header>
@@ -31,10 +31,10 @@
             <div id="divEliminar">
                 <div id="eliminarBody">
                     <div id="eliminar-div">
-                        <h2 id="confirmacionEliminacion">Segur que vol eliminar?</h2>
+                        <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
                         <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
                         <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                        <button id="aceptar" class="btnNormal" class="btnNormal" onclick="cancelarEliminar()">Acceptar</button>
+                        <button id="aceptar" class="btnNormal" onclick="cancelarEliminar()">Acceptar</button>
                     </div>
                 </div>
             </div>
@@ -42,15 +42,15 @@
                 <img class="body-images" src="img/proteina.jpg" />
                 <div class="inner-first-body"style="margin-left:0px;">
 
-                    <button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button>                
-                    <h1>NOM FÀRMAC</h1>
-                    <form id="form" style="margin-left:0px;" action="editarFarmaco" method="post"enctype="multipart/form-data">
-                        <input type="text" class="search-form" placeholder="Nom" />                        
-                        <input type="text" class="search-form" placeholder="SMILES" />
-                        <input type="text" class="search-form" placeholder="InChl" />
-                        <input type="text" class="search-form" placeholder="Estat" />
-                        <input type="text" class="search-form" placeholder="Descripció" />
-                        <input type="file" class="search-form" placeholder="Imatge" style="margin-top:22px; margin-left:20px; "/>
+                    <!--<button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button> -->               
+                    <h1>NOM PROTEÏNA</h1>
+                    <form id="form" style="margin-left:0px;" method="post" enctype="multipart/form-data">
+                        <input type="text" class="search-form" placeholder="Nom" />
+                        <input type="text" class="search-form" placeholder="Resolució" />
+                        <input type="text" class="search-form" placeholder="Especie" />
+                         <input type="text" class="search-form" placeholder="Metode" name="metode"/>
+                         <input type="text" class="search-form" placeholder="Descripció" name="descripcio"/>
+                        <input type="file" class="search-form" placeholder="Image" name="imatge" style="margin-top:22px; margin-left:20px; " />
                         <input type="submit" class="search-button" value="Guardar" />
                     </form>
 
@@ -63,10 +63,10 @@
         <div class="footer-left">
             <h3>L&S<span>WebProject</span></h3>
             <p class="footer-links">
-                <a href="home.html">Home</a>
-                <a href="estadisticas.html">Estadisticas</a>
-                <a href="farmacos.html">Farmacos</a>
-                <a href="proteinas.html">Proteinas</a>
+                <a href="home.php">Home</a>
+                <a href="estadisticas.php">Estadisticas</a>
+                <a href="farmacos.php">Farmacos</a>
+                <a href="proteinas.php">Proteinas</a>
             </p>
         </div>
 

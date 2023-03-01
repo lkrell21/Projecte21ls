@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-02-2023 a las 17:39:39
+-- Tiempo de generación: 23-02-2023 a las 19:51:21
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.1.12
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `projecte2ls`
+-- Base de datos: `projecte2`
 --
 
 -- --------------------------------------------------------

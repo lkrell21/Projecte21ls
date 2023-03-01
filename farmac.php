@@ -9,45 +9,32 @@
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>paginaweb</title>
+    <title>la pagina que muestra un farmaco en especifico</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style ="margin-top: 55px;">
-            <a href="home.html">Home</a>
-            <a href="estadisticas.html">Estadisticas</a>
-            <a href="farmacos.html">Farmacos</a>
-            <a href="proteinas.html">Proteinas</a>
+            <a href="home.php">Home</a>
+            <a href="estadisticas.php">Estadisticas</a>
+            <a href="farmacos.php">Farmacos</a>
+            <a href="proteinas.php">Proteinas</a>
             <a href="php/listaUsers.php">Users</a>
 
         </nav>
-        <a href="login.html">
+        <a href="login.php">
             <button id="btnLogin">Login</button>
         </a>
         </header>
 
         <div id="body">
-            <div class="search-body">
-                <div id="form-div">
-                    <form id="form">
-                        <input type="text" class="search-form" placeholder="Nom" />
-                        <input type="text" class="search-form" placeholder="Resolució" />
-                        <input type="text" class="search-form" placeholder="Especie" />
-                        <input type="text" class="search-form" placeholder="Data" />
-                        <input type="text" class="search-form" placeholder="Metode" />
-                        <input type="text" class="search-form" placeholder="Codi de la proteïna" />
-                        <input type="submit" class="search-button" value="Cerca" />
-                    </form>
-                </div>
-            </div>
             <div id="divEliminar" >
                 <div id="eliminarBody">
                     <div id="eliminar-div">
                         <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
                             <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
                             <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                            <button id="aceptar" onclick="cancelarEliminar()">Acceptar</button>
+                            <button id="aceptar" class="btnNormal" onclick="cancelarEliminar()">Acceptar</button>
                         
                     </div>
                 </div>
@@ -58,17 +45,17 @@
 
                     <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
                    
-                    <a href="editar_proteina.html">
+                    <a href="editar_farmaco.php">
                         <button class="button" id="editar">Editar</button>
                     </a>
-                    <h1>NOM PROTEÏNA</h1>
-                    <ul align="left">
+                    <h1>NOM FÀRMAC</h1>
+                    <ul >
                         <li>Nom</li>
-                        <li>Espècie</li>
                         <li>Codi</li>
-                        <li>Mètode</li>
+                        <li>SMILES</li>
+                        <li>InChl</li>
                         <li>Data</li>
-                        <li>Resolució</li>
+                        <li>Estat</li>
                     </ul>
                 </div>
             </div>            
@@ -79,10 +66,10 @@
         <div class="footer-left">
             <h3>L&S<span>WebProject</span></h3>
             <p class="footer-links">
-                <a href="home.html">Home</a>
-                <a href="estadisticas.html">Estadisticas</a>
-                <a href="farmacos.html">Farmacos</a>
-                <a href="proteinas.html">Proteinas</a>
+                <a href="home.php">Home</a>
+                <a href="estadisticas.php">Estadisticas</a>
+                <a href="farmacos.php">Farmacos</a>
+                <a href="proteinas.php">Proteinas</a>
             </p>
         </div>
 

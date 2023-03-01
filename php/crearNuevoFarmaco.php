@@ -22,7 +22,7 @@ $resultado2 = mysqli_query($conexion, $sql2);
 if (mysqli_num_rows($resultado2) > 0) {
 echo"Insert correcto";
 
-header('Location: ../crear_farmaco.html');
+header('Location: ../crear_farmaco.php');
 echo '<script type="text/javascript">
        window.onload = function () { alert("Fichero guardado"); } 
 </script>';

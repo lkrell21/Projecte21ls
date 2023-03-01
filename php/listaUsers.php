@@ -16,14 +16,14 @@
     <header style="background-image: url('../img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style="margin-top: 55px;">
-            <a href="../home.html">Home</a>
-            <a href="../estadisticas.html">Estadísticas</a>
-            <a href="../farmacos.html">Fármacos</a>
-            <a href="../proteinas.html">Proteínas</a>
+            <a href="../home.php">Home</a>
+            <a href="../estadisticas.php">Estadísticas</a>
+            <a href="../farmacos.php">Fármacos</a>
+            <a href="../proteinas.php">Proteínas</a>
             <a href="listaUsers.php">Users</a>
 
         </nav>
-        <a href="../login.html">
+        <a href="../login.php">
             <button id="btnLogin">Login</button>
         </a>
     </header>
@@ -57,10 +57,10 @@
         <div class="footer-left">
             <h3>L&S<span>WebProject</span></h3>
             <p class="footer-links">
-            <a href="../home.html">Home</a>
-            <a href="../estadisticas.html">Estadísticas</a>
-            <a href="../farmacos.html">Fármacos</a>
-            <a href="../proteinas.html">Proteínas</a>
+            <a href="../home.php">Home</a>
+            <a href="../estadisticas.php">Estadísticas</a>
+            <a href="../farmacos.php">Fármacos</a>
+            <a href="../proteinas.php">Proteínas</a>
             <a href="listaUsers.php">Users</a>
             </p>
         </div>

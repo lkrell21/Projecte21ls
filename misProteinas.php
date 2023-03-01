@@ -13,14 +13,14 @@
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style ="margin-top: 55px;">
-            <a href="home.html">Home</a>
-            <a href="estadisticas.html">Estadisticas</a>
-            <a href="farmacos.html">Farmacos</a>
-            <a href="proteinas.html">Proteinas</a>
+            <a href="home.php">Home</a>
+            <a href="estadisticas.php">Estadisticas</a>
+            <a href="farmacos.php">Farmacos</a>
+            <a href="proteinas.php">Proteinas</a>
             <a href="php/listaUsers.php">Users</a>
 
         </nav>
-        <a href="login.html">
+        <a href="login.php">
             <button id="btnLogin">Login</button>
         </a>
         </header>
@@ -40,10 +40,10 @@
                 </div>
             </div>
             <div class="menuBotones" style="text-align:center">
-                <a href="crear_proteina.html" class="barraBotonesLink" style="float:left">
+                <a href="crear_proteina.php" class="barraBotonesLink" style="float:left">
                     <button class="btnNormal">Crear proteïna</button>
                 </a>
-                <!--<a href="misFarmacos.html" class="barraBotonesLink">
+                <!--<a href="misFarmacos.php" class="barraBotonesLink">
                     <button class="btnNormal">Els meus fàrmacs</button>
                 </a>-->
                 <h3 style="text-align:center;display:inline-block;justify-content:center">Les meves proteïnes</h3>
@@ -51,7 +51,7 @@
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" />
                 <div class="inner-first-body">
-                    <h1><a href="proteina.html">NOM PROTEÏNA</a></h1>
+                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
                         consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
@@ -61,7 +61,7 @@
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" />
                 <div class="inner-first-body">
-                    <h1><a href="proteina.html">NOM PROTEÏNA</a></h1>
+                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium 
                     consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.</p>
                 </div>
@@ -69,7 +69,7 @@
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" />
                 <div class="inner-first-body">
-                    <h1><a href="proteina.html">NOM PROTEÏNA</a></h1>
+                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
                         consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
@@ -79,7 +79,7 @@
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" />
                 <div class="inner-first-body">
-                    <h1><a href="proteina.html">NOM PROTEÏNA</a></h1>
+                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>
                         Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
                         consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
@@ -93,10 +93,10 @@
         <div class="footer-left">
             <h3>L&S<span>WebProject</span></h3>
             <p class="footer-links">
-                <a href="home.html">Home</a>
-                <a href="estadisticas.html">Estadisticas</a>
-                <a href="farmacos.html">Farmacos</a>
-                <a href="proteinas.html">Proteinas</a>
+                <a href="home.php">Home</a>
+                <a href="estadisticas.php">Estadisticas</a>
+                <a href="farmacos.php">Farmacos</a>
+                <a href="proteinas.php">Proteinas</a>
             </p>
         </div>
 
