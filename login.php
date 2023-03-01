@@ -33,7 +33,7 @@
                         <div class="foot-lnk">
                             <a href="#">Forgot Password?</a>
                         </div>
-                        <a href="home.html" class="previous round">‹</a>
+                        <a href="home.php" class="previous round">‹</a>
                     </div>
                 </form>
                 <div class="sign-up-htm">
@@ -53,7 +53,7 @@
                         <label for="pass" class="label">Email Address</label>
                         <input id="pass" type="text" class="input">
                     </div>
-                    <a href="login.html" class="google-plus">
+                    <a href="login.php" class="google-plus">
                             <span class="fontawesome-google-plus"></span>
                               <i class="fa fa-google-plus" aria-hidden="true"></i>
                     
@@ -61,10 +61,10 @@
                             <input type="submit" class="button" value="Sign Up">
                     </div>
                     <div class="hr"></div>
-                    </a><div class="foot-lnk"><a href="login.html" class="google-plus">
+                    </a><div class="foot-lnk"><a href="login.php" class="google-plus">
                         <label for="tab-1">Already Member?</label></a>
                     </div>
-                    <a href="home.html" class="previous round">‹</a>
+                    <a href="home.php" class="previous round">‹</a>
                 </div>
             </div>
         </div>

@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content=""
+    <meta name="title" content="la pagina para crear farmacos">
+    <meta name="keywords" content="crear, farmacos, farmaco, guardar, eliminar">
+    <meta name="description" content="en esta pagina, crear farmacor, es donde podras crear, añadir y guardar tu propio farmaco"
     <link rel="stylesheet" href="css/individual.css">
     <link rel="stylesheet" href="css/general.css">
     <script type="text/javascript" src="funcions.js"></script>
@@ -16,15 +18,15 @@
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style ="margin-top: 55px;">
-            <a href="home.php">Home</a>
-            <a href="estadisticas.php">Estadisticas</a>
-            <a href="farmacos.php">Farmacos</a>
-            <a href="proteinas.php">Proteinas</a>
-            <a href="php/listaUsers.php">Users</a>
+            <a href="home.php" title="link al home">Home</a>
+            <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
+            <a href="farmacos.php" title="link a farmacos">Farmacos</a>
+            <a href="proteinas.php" title="link a proteinas">Proteinas</a>
+            <a href="php/listaUsers.php" title="link a users">Users</a>
 
         </nav>
         <a href="login.php">
-            <button id="btnLogin">Login</button>
+            <button id="btnLogin" title="link al login">Login</button>
         </a>
         </header>
 
@@ -64,10 +66,11 @@
         <div class="footer-left">
             <h3>L&S<span>WebProject</span></h3>
             <p class="footer-links">
-                <a href="home.php">Home</a>
-                <a href="estadisticas.php">Estadisticas</a>
-                <a href="farmacos.php">Farmacos</a>
-                <a href="proteinas.php">Proteinas</a>
+            <a href="home.php" title="link al home">Home</a>
+            <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
+            <a href="farmacos.php" title="link a farmacos">Farmacos</a>
+            <a href="proteinas.php" title="link a proteinas">Proteinas</a>
+            <a href="php/listaUsers.php" title="link a users">Users</a>
             </p>
         </div>
 
@@ -92,10 +95,10 @@
                 Mejor pagina web para guardar y crear farmacos y proteinas :D
             </p>
             <div class="footer-icons">
-                <a href="https://es-es.facebook.com/"><i class="fa fa-facebook"></i></a>
-                <a href="https://twitter.com/"><i class="fa fa-twitter"></i></a>
-                <a href="https://github.com/"><i class="fa fa-github"></i></a>
-                <a href="web.whatsapp.com"><i class="fa fa-whatsapp"></i></a>
+                <a href="https://es-es.facebook.com/" title="link a la pagina de facebook"><i class="fa fa-facebook"></i></a>
+                <a href="https://twitter.com/" title="link a la pagina de twitter"><i class="fa fa-twitter"></i></a>
+                <a href="https://github.com/" title="link a la pagina de github"><i class="fa fa-github"></i></a>
+                <a href="web.whatsapp.com" title="link al chat directo de whatsapp"><i class="fa fa-whatsapp"></i></a>
             </div>
         </div>
 

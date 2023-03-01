@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="La pagina inicial del projecte">
     <meta name="keywords" content="proteinas, farmacos, estadisticas, users, login, noticias, novedades">
-    <meta name="description" content=""
+    <meta name="description" content="Esta es la pagina principal, el home, donde se ven las noticias principales de las proteinas y los farmacos."
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,11 +16,11 @@
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
     <nav style ="margin-top: 55px;">
-        <a href="home.php">Home</a>
-        <a href="estadisticas.php">Estadísticas</a>
-        <a href="farmacos.php">Fármacos</a>
-        <a href="proteinas.php">Proteínas</a>
-        <a href="php/listaUsers.php">Users</a>
+        <a href="home.php" title="link al home">Home</a>
+        <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
+        <a href="farmacos.php" title="link a farmacos">Farmacos</a>
+        <a href="proteinas.php" title="link a proteinas">Proteinas</a>
+        <a href="php/listaUsers.php" title="link a users">Users</a>
         
     </nav>
     <a href="login.php">
@@ -64,10 +64,11 @@
         <div class="footer-left">
             <h3>L&S<span>WebProject</span></h3>
             <p class="footer-links">
-                <a href="home.php">Home</a>
-                <a href="estadisticas.php">Estadísticas</a>
-                <a href="farmacos.php">Fármacos</a>
-                <a href="proteinas.php">Proteínas</a>
+            <a href="home.php" title="link al home">Home</a>
+            <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
+            <a href="farmacos.php" title="link a farmacos">Farmacos</a>
+            <a href="proteinas.php" title="link a proteinas">Proteinas</a>
+            <a href="php/listaUsers.php" title="link a users">Users</a>
             </p>
         </div>
 

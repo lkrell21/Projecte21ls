@@ -15,11 +15,11 @@
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style ="margin-top: 55px;">
-            <a href="home.php">Home</a>
-            <a href="estadisticas.php">Estadisticas</a>
-            <a href="farmacos.php">Farmacos</a>
-            <a href="proteinas.php">Proteinas</a>
-            <a href="php/listaUsers.php">Users</a>
+            <a href="home.php" title="link al home">Home</a>
+            <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
+            <a href="farmacos.php" title="link a farmacos">Farmacos</a>
+            <a href="proteinas.php" title="link a proteinas">Proteinas</a>
+            <a href="php/listaUsers.php" title="link a users">Users</a>
 
         </nav>
         <a href="login.php">
@@ -63,10 +63,11 @@
         <div class="footer-left">
             <h3>L&S<span>WebProject</span></h3>
             <p class="footer-links">
-                <a href="home.php">Home</a>
-                <a href="estadisticas.php">Estadisticas</a>
-                <a href="farmacos.php">Farmacos</a>
-                <a href="proteinas.php">Proteinas</a>
+            <a href="home.php" title="link al home">Home</a>
+            <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
+            <a href="farmacos.php" title="link a farmacos">Farmacos</a>
+            <a href="proteinas.php" title="link a proteinas">Proteinas</a>
+            <a href="php/listaUsers.php" title="link a users">Users</a>
             </p>
         </div>
 
