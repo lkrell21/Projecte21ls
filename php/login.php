@@ -1,5 +1,5 @@
 <?php include_once('conexionBBDD.php'); ?>
-<html>
+<html lang="es">
 
 <head>
     <title>INDEX</title>

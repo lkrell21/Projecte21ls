@@ -1,9 +1,10 @@
 <?php include_once('conexionBBDD.php');?>
-<html>
+<html lang="es">
  
 <head> 
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv= "content-type" content="text/html;charset=es">
 <meta name="title" content="pagina para crear una nueva proteina">
 <meta name="keywords" content="proteina, nueva, crear, guardar">
 <meta name="description" content="Esta es la pagina para crear una nueva proteina y guardala en la base de datos">

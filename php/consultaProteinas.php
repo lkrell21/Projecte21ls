@@ -1,9 +1,10 @@
 <?php include_once('conexionBBDD.php'); ?>
-<html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv= "content-type" content="text/html;charset=es">
     <meta name="title" content="pagina de consulta de proteinas">
     <meta name="keywords" content="proteina, consulta, busqueda, edicion, eliminar">
     <meta name="description" content="en esta pagina podremos ver la consulta de proteinas">
