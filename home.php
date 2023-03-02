@@ -31,28 +31,28 @@
     
     <div id="body">
         <div class="first-body">
-            <img class="left-images" src="img/example.jpg" />
+            <img class="left-images" src="img/example.jpg" alt="imagen noticia 1"/>
             <div class="inner_first-body-left">
                 <h2>Lorem ipsum</h2>
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="right-images" src="img/example.jpg" />
+            <img class="right-images" src="img/example.jpg" alt="imagen noticia 2"/>
             <div class="inner_first-body-left">
                 <h2>Lorem ipsum</h2>
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="left-images" src="img/example.jpg" />
+            <img class="left-images" src="img/example.jpg" alt="imagen noticia 3"/>
             <div class="inner_first-body-left">
                 <h2>Lorem ipsum</h2>
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="right-images" src="img/example.jpg" />
+            <img class="right-images" src="img/example.jpg" alt="imagen noticia 4"/>
             <div class="inner_first-body-left">
                 <h2>Lorem ipsum</h2>
                 <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>

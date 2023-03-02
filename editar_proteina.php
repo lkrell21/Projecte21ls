@@ -43,7 +43,7 @@
                 </div>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" />
+                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina b"/>
                 <div class="inner-first-body"style="margin-left:0px;">
 
                     <button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button>                

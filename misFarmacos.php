@@ -52,7 +52,7 @@
             </a>
         </div>
         <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" />
+            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco convoi"/>
             <div>
                 <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>
@@ -62,7 +62,7 @@
             </div>
         </div>
         <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" />
+            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco 2"/>
             <div>
                 <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" />
+            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco 3"/>
             <div>
                 <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>
@@ -83,7 +83,7 @@
             </div>
         </div>
         <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" />
+            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco 4"/>
             <div>
                 <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
                 <p>

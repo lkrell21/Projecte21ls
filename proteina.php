@@ -56,7 +56,7 @@
                 </div>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" />
+                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina grasa"/>
                 <div class="inner-first-body">
 
                     <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>

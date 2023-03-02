@@ -53,7 +53,7 @@
                 <h3 style="text-align:center;display:inline-block;justify-content:center">Les meves proteïnes</h3>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" />
+                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 1"/>
                 <div class="inner-first-body">
                     <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>
@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" />
+                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 2"/>
                 <div class="inner-first-body">
                     <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium 
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" />
+                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 3" />
                 <div class="inner-first-body">
                     <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" />
+                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 4"/>
                 <div class="inner-first-body">
                     <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>
