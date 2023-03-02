@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/individual.css">
+    <meta name="title" content="la pagina que muestra una proteina en especifico">
+    <meta name="keywords" content="proteina, informacion, imagen proteina, descripcion">
+    <meta name="description" content="En esta pagina podremos ver una proteina en especifico, ya sea la nuestra o la de otro">    <link rel="stylesheet" href="css/individual.css">
     <link rel="stylesheet" href="css/general.css">
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>paginaweb</title>
+    <title>la pagina que muestra una proteina en especifico</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">

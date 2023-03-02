@@ -4,23 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="title" content="pagina de consulta de proteinas">
+    <meta name="keywords" content="proteina, consulta, busqueda, edicion, eliminar">
+    <meta name="description" content="en esta pagina podremos ver la consulta de proteinas">
     <link rel="stylesheet" href="../css/farmacos.css">
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="../css/proteinas.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>PROTEINAS</title>
+    <title>pagina de consulta de proteinas</title>
 </head>
 
 <body> <!--<h1>Consultar</h1>-->
     <header style="background-image: url('../img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
         <nav style="margin-top: 55px;">
-            <a href="../home.php">Home</a>
-            <a href="../estadisticas.php">Estadísticas</a>
-            <a href="../farmacos.php">Fármacos</a>
-            <a href="../proteinas.php">Proteínas</a>
-            <a href="listaUsers.php">Users</a>
-
+        <a href="../home.php" title="link al home">Home</a>
+            <a href="../estadisticas.php" title="link a estadisticas">Estadísticas</a>
+            <a href="../farmacos.php" title="link a farmacos">Fármacos</a>
+            <a href="../proteinas.php" title="link a proteinas">Proteínas</a>
+            <a href="listaUsers.php" title="link a users">Users</a>
         </nav>
         <a href="../login.php">
             <button type="submit">Login</button>

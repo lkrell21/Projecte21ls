@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="La pagina para ver tus propios farmacos">
+    <meta name="keywords" content="farmaco, propio, imagen, farmacos">
+    <meta name="description" content="esta pagina muestra los farmacos que estan bajo tu nombre, tus propios farmacos">
     <link rel="stylesheet" href="css/farmacos.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>paginaweb</title>
+    <title>La pagina para ver tus propios farmacos</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">

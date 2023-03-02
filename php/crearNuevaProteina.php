@@ -3,11 +3,14 @@
  
 <head> 
 <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="../css/farmacos.css">
-    <link rel="stylesheet" href="../css/general.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
-    <title>PROTEINAS</title></head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="title" content="pagina para crear una nueva proteina">
+<meta name="keywords" content="proteina, nueva, crear, guardar">
+<meta name="description" content="Esta es la pagina para crear una nueva proteina y guardala en la base de datos">
+<link rel="stylesheet" href="../css/farmacos.css">
+<link rel="stylesheet" href="../css/general.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+<title>Pagina para crear una nueva proteina</title></head>
 <body> <!--<h1>Consultar</h1>-->
 <?php
 

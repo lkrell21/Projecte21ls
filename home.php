@@ -97,7 +97,6 @@
                 <a href="https://twitter.com/" title="link a la pagina de twitter"><i class="fa fa-twitter"></i></a>
                 <a href="https://github.com/" title="link a la pagina de github"><i class="fa fa-github"></i></a>
                 <a href="web.whatsapp.com" title="link al chat directo de whatsapp"><i class="fa fa-whatsapp"></i></a>
-
             </div>
         </div>
 
