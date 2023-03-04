@@ -50,14 +50,24 @@
   margin:40px;
 }
 input[type=submit] {
-  width: 30%;
-  background-color: #7FB3D5;
-  color: white;
-  padding: 6px 10px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+    width: 30%;
+    background-color: #7FB3D5;
+    color: white;
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type=reset] {
+    width: 30%;
+    background-color: #7FB3D5;
+    color: white;
+    padding: 6px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 input[type=text] {
   width: 30%;
@@ -78,6 +88,9 @@ input[type=submit]:hover {
       width: 240px;
       float:left;
   }
+input[type=reset]:hover {
+    background-color: #5499C7;
+}
 .inner-first-body{
    margin-top:50px;
 }

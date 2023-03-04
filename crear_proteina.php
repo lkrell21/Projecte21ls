@@ -1,3 +1,10 @@
+<?php include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
+else $sele="0";
+if (isset($_POST['enviat2'])) $sele2="0";
+else $sele2="1";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -30,7 +37,10 @@
         <button id="btnLogin" title="link al login">Login</button>
         </a>
         </header>
-
+        <?php
+if ($sele=="0") 
+{	
+    ?>
         <div id="body">
             <div id="divEliminar">
                 <div id="eliminarBody">
@@ -48,20 +58,62 @@
 
                     <!--<button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button> -->               
                     <h1>NOM PROTEÏNA</h1>
-                    <form id="form" style="margin-left:0px;" method="post" enctype="multipart/form-data">
-                        <input type="text" class="search-form" placeholder="Nom" />
-                        <input type="text" class="search-form" placeholder="Resolució" />
-                        <input type="text" class="search-form" placeholder="Especie" />
+                    <form id="form" style="margin-left:0px;" method="post" enctype="multipart/form-data" action="crear_proteina.php">
+                        <input type="text" class="search-form" placeholder="Nom" name="nom"/>
+                        <input type="text" class="search-form" placeholder="Resolució" name="resolucio" />
+                        <input type="text" class="search-form" placeholder="Especie" name="especie"/>
                          <input type="text" class="search-form" placeholder="Metode" name="metode"/>
                          <input type="text" class="search-form" placeholder="Descripció" name="descripcio"/>
                         <input type="file" class="search-form" placeholder="Image" name="imatge" style="margin-top:22px; margin-left:20px; " />
-                        <input type="submit" class="search-button" value="Guardar" />
+                        <input type="submit" class="search-button" value="Guardar" name="Enviar"/>
+                        <input name="enviat" type="hidden" value="1" />
+                        <input name="Enviar" type="reset" value="reset" class="search-button" />
                     </form>
 
                 </div>
             </div>            
         </div>
+        <?php 
+} 
+else 
+{
+    $nom=$_POST["nom"];
+    $resolucio=$_POST["resolucio"];
 
+    $especie=$_POST["especie"];
+
+    $fecha=date("Y-m-d.H:i:s");
+
+    $metode=$_POST["metode"];
+
+    $idProteina=$_POST["idProteina"];
+    $imatge=$_FILES["imatge"]["name"];
+   
+    $info = pathinfo($imatge);
+    $tipoFichero= $info["extension"];
+    $nomImatge = "img/proteinas/".$nom.".".$tipoFichero;
+    $idUsuari='2';
+    $descripcio=$_POST["descripcio"];
+
+    $sql= "INSERT into `proteinas`(`nombre`, `resolucion`, `especie`, `fecha`, `tipoFichero`, `imagen`, `metodo`, `descripcion`, `idUsuario`)  Values('".$nom."', '".$resolucio."', '".$especie."','".$fecha."', '".$tipoFichero."', '".$nomImatge."', '".$metode."', '".$descripcio."', '".$idUsuari."')";
+    $res = move_uploaded_file($_FILES["imatge"]["tmp_name"], $nomImatge);
+    $resultado = mysqli_query($conexion, $sql);
+
+$sql2= "SELECT * FROM proteinas where nombre = '".$nom."'"; //AND idProteina = '".$idProteina."'";
+$resultado2 = mysqli_query($conexion, $sql2);
+if (mysqli_num_rows($resultado2) > 0) {
+    echo"<div class='first-body' style='text-align:center;'><h2>Proteína introducida correctamente</h2><br><a href='crear_proteina.php'>Introducir nueva proteína</a></div>";
+    
+    //header('Location: ../crear_farmaco.php');
+   // echo '<script type="text/javascript">
+     //      window.onload = function () { alert("Fichero guardado"); } 
+    //</script>';
+    //echo $fecha;
+    } else echo "Ups... Algo ha fallado!";
+    if($res) {echo "<br>";}
+    else {echo "<br>Error al guardar fichero";}
+}
+?>
     <footer class="footer">
 
         <div class="footer-left">
