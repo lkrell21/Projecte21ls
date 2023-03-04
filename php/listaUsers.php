@@ -1,4 +1,4 @@
-<?php include_once('conexionBBDD.php'); ?>
+<?php include_once('../conexionBBDD.php'); ?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,6 +38,8 @@
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Correo electrónico</th>
+                <th>Rol</th>
+                <th>Activo</th>
                 <?php $sql = "SELECT * FROM usuarios";
                 $result = mysqli_query($conexion, $sql);
                 while ($row = mysqli_fetch_assoc($result)): ?>
@@ -50,6 +52,12 @@
                     </td>
                     <td>
                         <?php echo $row['email']; ?>
+                    </td>
+                    <td>
+                        <?php echo $row['rol']; ?>
+                    </td>
+                    <td>
+                        <?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>
                     </td>
                 </tr>
             <?php endwhile; ?>

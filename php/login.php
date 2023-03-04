@@ -1,4 +1,4 @@
-<?php include_once('conexionBBDD.php'); ?>
+<?php include_once('../conexionBBDD.php'); ?>
 <html lang="es">
 
 <head>
