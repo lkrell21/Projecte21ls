@@ -102,7 +102,7 @@ else
 $sql2= "SELECT * FROM proteinas where nombre = '".$nom."'"; //AND idProteina = '".$idProteina."'";
 $resultado2 = mysqli_query($conexion, $sql2);
 if (mysqli_num_rows($resultado2) > 0) {
-    echo"<div class='first-body' style='text-align:center;'><h2>Proteína introducida correctamente</h2><br><a href='crear_proteina.php'>Introducir nueva proteína</a></div>";
+    echo"<div class='first-body' style='text-align:center;'><h2>Proteína introducida correctamente</h2><br><a href='crear_proteina.php'>Introducir nueva proteïna</a></div>";
     
     //header('Location: ../crear_farmaco.php');
    // echo '<script type="text/javascript">

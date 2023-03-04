@@ -1,3 +1,9 @@
+<?php include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
+else $sele="0";
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -33,14 +39,16 @@
         <div id="body">
             <div class="search-body">
                 <div id="form-div">
-                    <form id="form">
-                        <input type="text" class="search-form" placeholder="Nom" />
-                        <input type="text" class="search-form" placeholder="Resolució" />
-                        <input type="text" class="search-form" placeholder="Especie" />
-                        <input type="text" class="search-form" placeholder="Data" />
-                        <input type="text" class="search-form" placeholder="Metode" />
-                        <input type="text" class="search-form" placeholder="Codi de la proteïna" />
+                <form id="form" action="proteinas.php" method="post">
+                        <input type="text" class="search-form" placeholder="Nom" name="nom"/>
+                        <input type="text" class="search-form" placeholder="Resolució" name="resolucio"/>
+                        <input type="text" class="search-form" placeholder="Especie" name="especie"/>
+                        <input type="text" class="search-form" placeholder="Data" name="data" />
+                        <input type="text" class="search-form" placeholder="Metode" name="metode"/>
+                        <input type="text" class="search-form" placeholder="Codi de la proteïna" name="idProteina"/>
                         <input type="submit" class="search-button" value="Cerca" />
+                        <input name="enviat" type="hidden" value="1" />
+                        <input name="Enviar" type="reset" value="reset" class="search-button" />
                     </form>
                 </div>
             </div>
@@ -55,28 +63,44 @@
                     </div>
                 </div>
             </div>
-            <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina grasa"/>
-                <div class="inner-first-body">
+<?php 
+if($sele=="0"){
+    $idProteina=$_POST["idProteina"];
+    $sql="SELECT * from proteinas where idProteina='".$idProteina."'";
+    $resultado=mysqli_query($conexion,$sql);
+    //echo $sql;
+    while($row = mysqli_fetch_assoc($resultado)) {
 
-                    <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
-                   
-                    <a href="editar_proteina.php">
-                        <button class="button" id="editar">Editar</button>
-                    </a>
-                    <h1>NOM PROTEÏNA</h1>
+?>
+            <div class="first-body">
+                <img class="body-images" src="<?php echo $row["imagen"];?>" alt="imagen proteina"/>
+                <div class="inner-first-body">
+                <div style="width:70%">
+                    <h1 style="text-transform: uppercase;font-weight:bold;"><?php echo $row["nombre"];?></h1>
                     <ul align="left">
-                        <li>Nom</li>
-                        <li>Espècie</li>
-                        <li>Codi</li>
-                        <li>Mètode</li>
-                        <li>Data</li>
-                        <li>Resolució</li>
+                        <li>Nom: <?php echo $row["nombre"];?></li>
+                        <li>Espècie: <?php echo $row["especie"];?></li>
+                        <li>Codi: <?php echo $row["idProteina"];?></li>
+                        <li>Mètode: <?php echo $row["metodo"];?></li>
+                        <li>Data: <?php echo $row["fecha"];?></li>
+                        <li>Resolució: <?php echo $row["resolucion"];?></li>
                     </ul>
+                </div>
+                <div>
+                <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
+                   
+                   <a href="editar_proteina.php">
+                       <button class="button" id="editar">Editar</button>
+                   </a>
+                </div>
                 </div>
             </div>            
         </div>
-
+<?php
+}}else{
+    echo"Error al cargar los datos.";
+}
+?>
     <footer class="footer">
 
         <div class="footer-left">

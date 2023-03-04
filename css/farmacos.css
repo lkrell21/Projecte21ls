@@ -59,6 +59,15 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
+.titulosIndividuales {
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: bold;
+    width:auto;
+}
 input[type=reset] {
     width: 30%;
     background-color: #7FB3D5;

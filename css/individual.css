@@ -47,6 +47,14 @@ input[type=submit] {
     border-radius: 4px;
     cursor: pointer;
 }
+.titulosIndividuales {
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 24px;
+    text-transform: capitalize;
+    font-weight: bold;
+}
 input[type=reset] {
     width: 30%;
     background-color: #7FB3D5;
@@ -83,8 +91,10 @@ input[type=reset]:hover {
 margin-top:40px;
 float:right;
 width:60%;
-margin-right: 100px;
+margin-right: 5%;
 text-align: center;
+display:inline-flex;
+flex-wrap:wrap;
 
 }
 .inner-first-body p{
@@ -149,5 +159,11 @@ text-align: center;
 
 #eliminar2 {
     background-color: rgb(218, 142, 148);
+}
+
+.first-body .body-images {
+    margin: 5%;
+    height: 60%;
+    width: 25%;
 }
 

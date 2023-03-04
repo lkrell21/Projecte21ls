@@ -1,3 +1,8 @@
+<?php include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
+else $sele="0";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,7 +37,7 @@
         <div id="body">
             <div class="search-body">
                 <div id="form-div">
-                    <form id="form" action="php/consultaProteinas.php" method="post">
+                    <form id="form" action="proteinas.php" method="post">
                         <input type="text" class="search-form" placeholder="Nom" name="nom"/>
                         <input type="text" class="search-form" placeholder="Resolució" name="resolucio"/>
                         <input type="text" class="search-form" placeholder="Especie" name="especie"/>
@@ -40,6 +45,8 @@
                         <input type="text" class="search-form" placeholder="Metode" name="metode"/>
                         <input type="text" class="search-form" placeholder="Codi de la proteïna" name="idProteina"/>
                         <input type="submit" class="search-button" value="Cerca" />
+                        <input name="enviat" type="hidden" value="1" />
+                        <input name="Enviar" type="reset" value="reset" class="search-button" />
                     </form>
                 </div>
             </div>
@@ -51,8 +58,29 @@
                     <button class="btnNormal">Les meves proteïnes</button>
                 </a>
             </div>
-            <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 11"/>
+            
+            <?php
+if ($sele=="0") 
+{	
+    $sql = "SELECT * FROM proteinas";
+    $resultado = mysqli_query($conexion, $sql);
+    if(mysqli_fetch_assoc($resultado)>0){
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $datos = $datos .
+                "<div class='first-body'><img class='body-images' src='" . $row["imagen"] . "'/>
+                <div class='inner-first-body'>
+                <form action='proteina.php'  method='post' name='formu'>
+                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'></h1>
+                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                        </form>
+                        <p>
+            " . $row["descripcion"] . "</p></div></div>";
+        }
+        echo $datos;
+    } else
+        echo "Se ha producido un error al cargar los datos..."; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
+    ?>
+               <!-- <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 11"/>
                 <div class="inner-first-body">
                     <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
                     <p>
@@ -88,9 +116,58 @@
                         consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
                     </p>
                 </div>
-            </div>
-        </div>
+            </div>-->
+<?php }
 
+else{
+    $sql = "SELECT * FROM proteinas";
+    if ($_POST["nom"] != null) {
+        $nom = $_POST["nom"];
+        $sql = $sql . " where nombre = '$nom'";
+    }
+    if ($_POST["resolucio"] != null) {
+        $resolucio = $_POST["resolucio"];
+        $sql = $sql . " AND resolucion = '$resolucio'";
+    }
+    if ($_POST["especie"] != null) {
+        $especie = $_POST["especie"];
+        $sql = $sql . " AND especie = '$especie'";
+    }
+    if ($_POST["data"] != null) {
+        $fecha = $_POST["data"];
+        $sql = $sql . " AND cast(date,fecha) = '$fecha'";
+    }
+    if ($_POST["metode"] != null) {
+        $fecha = $_POST["metode"];
+        $sql = $sql . " AND metode = '$metode'";
+    }
+    if ($_POST["idProteina"] != null) {
+        $idProteina = $_POST["idProteina"];
+        $sql = $sql . " AND idProteina = '$idProteina'";
+    }
+    $datos = "";
+  
+    $resultado = mysqli_query($conexion, $sql);
+
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $datos = $datos .
+                "<div class='first-body'>
+                    <img class='body-images' src='" . $row["imagen"] . "'/>
+                    <div class='inner-first-body'>
+                        <form action='proteina.php  method='post' name='formu'>
+                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'/></h1>
+                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                        </form>
+                           
+            " . $row["descripcion"] . "</p></div></form></div>";
+            //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";
+        }
+        echo $datos;
+    } else
+        echo "No hay datos con ese filtro"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+}
+?>
     <footer class="footer">
 
         <div class="footer-left">
