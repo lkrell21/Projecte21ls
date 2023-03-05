@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/listaUsers.css">
     <link rel="stylesheet" href="../css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Pagina de la lista de usuarios</title>
+    <title>Consulta usuarios</title>
 </head>
 
 <body>

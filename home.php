@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>La pagina inicial del projecte</title>
+    <title>Página principal</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">

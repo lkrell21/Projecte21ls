@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-    <title>La pagina donde salen las estadisticas de nuestra web</title>
+    <title>Estadísticas</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
