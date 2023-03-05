@@ -1,8 +1,9 @@
 <?php include_once('conexionBBDD.php');
 error_reporting(E_ALL ^ E_NOTICE);
-//if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
-//else $sele="0";
-
+$nom=ucfirst($_POST["nombre"]);   
+$idProteina=$_POST["idProteina"];
+if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
+else $sele="0";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -13,12 +14,15 @@ error_reporting(E_ALL ^ E_NOTICE);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="la pagina que muestra una proteina en especifico">
     <meta name="keywords" content="proteina, informacion, imagen proteina, descripcion">
-    <meta name="description" content="En esta pagina podremos ver una proteina en especifico, ya sea la nuestra o la de otro">    <link rel="stylesheet" href="css/individual.css">
-    <link rel="stylesheet" href="css/general.css">
+    <meta name="description" content="En esta pagina podremos ver una proteina en especifico, ya sea la nuestra o la de otro">    
+    
     <script type="text/javascript" src="funcions.js"></script>
 
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/individual.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>la pagina que muestra una proteina en especifico</title>
+
+    <title><?php echo $nom; ?></title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
@@ -48,27 +52,58 @@ error_reporting(E_ALL ^ E_NOTICE);
                         <input type="text" class="search-form" placeholder="Codi de la proteïna" name="idProteina"/>
                         <input type="submit" class="search-button" value="Cerca" />
                         <input name="enviat" type="hidden" value="1" />
-                        <input name="Enviar" type="reset" value="reset" class="search-button" />
+                        <input name="Enviar" type="reset" value="Reset" class="search-button" />
                     </form>
                 </div>
             </div>
             <div id="divEliminar" >
                 <div id="eliminarBody">
-                    <div id="eliminar-div">
-                        <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
-                            <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
+                    <div class="eliminar-div">
+                        <h2 >Seguro que quiere eliminar?</h2>
+                            <form id="form" action="proteina.php" method="post" style="margin-top:0;margin-right:0" >                                                       
+                                <input type="submit" value="Eliminar" class="buttonEspecial" id="eliminar2"></input>
+                                <input type="hidden" value="<?php echo $idProteina;?>" name="idProteina"></input>
+                                <input type="hidden" value="1" name="eliminar"></input>
+                            </form>                           
                             <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                            <button id="aceptar" onclick="cancelarEliminar()">Acceptar</button>
-                        
+                                                
                     </div>
                 </div>
             </div>
-<?php 
-//if($sele=="0"){
-    $idProteina=$_POST["idProteina"];
+            <?php if($sele==1){    
+                                $idProteina = $_POST["idProteina"];
+
+                                $sql = "DELETE FROM proteinas WHERE idProteina = ".$idProteina;  
+                                
+                                $resultado = mysqli_query($conexion, $sql);
+                                   
+                                $sql2="SELECT * FROM proteinas WHERE idProteina = '".$idProteina."'";
+                                $resultado2 = mysqli_query($conexion, $sql);
+                                
+                                    //if (mysqli_fetch_assoc($resultado2)) {
+                                        //echo "Error al eliminar <br>";
+                                
+                                    //}   
+                                                            
+                            ?>
+                            <div id="divEliminar"class="divEliminar" style="display:block; margin-top:-200px" >
+                                <div id="eliminarBody">
+                                    <div id="eliminar-div">
+                                        <h2 >Se ha eliminado correctamente</h2>
+                                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarProteina()">Acceptar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php 
+                            }
+
+    //echo $sql;
+    
     $sql="SELECT * from proteinas where idProteina='".$idProteina."'";
     $resultado=mysqli_query($conexion,$sql);
-    //echo $sql;
+   // $row = mysqli_fetch_assoc($resultado);
     while($row = mysqli_fetch_assoc($resultado)) {
 
 ?>
@@ -78,21 +113,20 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <div style="width:70%">
                     <h1 style="text-transform: uppercase;font-weight:bold;"><?php echo $row["nombre"];?></h1>
                     <ul align="left">
-                        <li>Nom: <?php echo $row["nombre"];?></li>
-                        <li>Espècie: <?php echo $row["especie"];?></li>
-                        <li>Codi: <?php echo $row["idProteina"];?></li>
-                        <li>Mètode: <?php echo $row["metodo"];?></li>
-                        <li>Data: <?php echo $row["fecha"];?></li>
-                        <li>Resolució: <?php echo $row["resolucion"];?></li>
+                        <li><b>Nom</b>: <?php echo $row["nombre"];?></li>
+                        <li><b>Espècie</b>: <?php echo $row["especie"];?></li>
+                        <li><b>Codi</b>: <?php echo $row["idProteina"];?></li>
+                        <li><b>Mètode</b>: <?php echo $row["metodo"];?></li>
+                        <li><b>Data</b>: <?php echo $row["fecha"];?></li>
+                        <li><b>Resolució</b>: <?php echo $row["resolucion"];?></li>
                     </ul>
                 </div>
-                <div>
-                <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
-                   
-                   <a href="editar_proteina.php">
-                       <button class="button" id="editar">Editar</button>
-                   </a>
-                </div>
+                <div style="width:30%; display:flex; flex-wrap:wrap">
+                    <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
+                    <form id="form" action="editar_proteina.php" method="post" style="margin-top:0;margin-right:0" >                                                       
+                            <input type="submit" value="Editar" class="button" id="editar"></input>
+                            <input type="hidden" value="<?php $row["idFarmaco"];?>" name="idFarmaco"></input>
+                    </form>
                 </div>
             </div>            
         </div>
@@ -141,7 +175,6 @@ error_reporting(E_ALL ^ E_NOTICE);
                 <a href="web.whatsapp.com" title="link al chat directo de whatsapp"><i class="fa fa-whatsapp"></i></a>
             </div>
         </div>
-
     </footer>
 </body>
 </html> 

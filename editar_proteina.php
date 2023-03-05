@@ -1,3 +1,10 @@
+<?php include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+$nom=ucfirst($_POST["nombre"]);   
+$idProteina=$_POST["idProteina"];
+if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
+else $sele="0";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -32,16 +39,48 @@
         </header>
 
         <div id="body">
-            <div id="divEliminar">
+        <div id="divEliminar" >
                 <div id="eliminarBody">
-                    <div id="eliminar-div">
-                        <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
-                        <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
-                        <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                        <button id="aceptar" class="btnNormal" onclick="cancelarEliminar()">Acceptar</button>
+                    <div class="eliminar-div">
+                        <h2 >Seguro que quiere eliminar?</h2>
+                            <form id="form" action="proteina.php" method="post" style="margin-top:0;margin-right:0" >                                                       
+                                <input type="submit" value="Eliminar" class="buttonEspecial" id="eliminar2"></input>
+                                <input type="hidden" value="<?php echo $idProteina;?>" name="idProteina"></input>
+                                <input type="hidden" value="1" name="eliminar"></input>
+                            </form>                           
+                            <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
+                                                
                     </div>
                 </div>
             </div>
+            <?php if($sele==1){    
+                $idProteina = $_POST["idProteina"];
+
+                $sql = "DELETE FROM proteinas WHERE idProteina = ".$idProteina;  
+                
+                $resultado = mysqli_query($conexion, $sql);
+                    
+                $sql2="SELECT * FROM proteinas WHERE idProteina = '".$idProteina."'";
+                $resultado2 = mysqli_query($conexion, $sql);
+                
+                    //if (mysqli_fetch_assoc($resultado2)) {
+                        //echo "Error al eliminar <br>";
+                
+                    //}   
+                        
+            ?>
+            <div id="divEliminar"class="divEliminar" style="display:block; margin-top:-200px" >
+                <div id="eliminarBody">
+                    <div id="eliminar-div">
+                        <h2 >Se ha eliminado correctamente</h2>
+                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarProteina()">Acceptar</button>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <?php }?>
+
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" alt="imagen proteina b"/>
                 <div class="inner-first-body"style="margin-left:0px;">

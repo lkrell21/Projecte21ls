@@ -54,11 +54,11 @@ if ($sele=="0")
                 </div>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina A"/>
+                <!--<img class="body-images" src="img/proteina.jpg" alt="imagen proteina A"/>
                 <div class="inner-first-body"style="margin-left:0px;">
 
-                    <!--<button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button> -->               
-                    <h1>CREAR NOU FÀRMAC</h1>
+                    <button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button> -->               
+                    <h1 style="text-align:center; margin-top:6%">NUEVO FÁRMACO</h1>
                     <form id="form" style="margin-left:0px;" action="crear_farmaco.php" method="post" enctype="multipart/form-data">
                         <input type="text" class="search-form" placeholder="Nombre" name="nom" required/>                        
                         <input type="text" class="search-form" placeholder="SMILES" name="smiles" required/>
@@ -70,8 +70,6 @@ if ($sele=="0")
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="Reset" class="search-button" />
                     </form>
-
-                </div>
             </div>            
         </div>
         <?php 

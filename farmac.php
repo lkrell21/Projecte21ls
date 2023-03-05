@@ -1,3 +1,10 @@
+<?php include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+$nom=ucfirst($_POST["nombre2"]);
+$idFarmaco= $_POST["idFarmaco"];
+if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
+else $sele="0";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,7 +19,7 @@
     <link rel="stylesheet" href="css/general.css">
     <script type="text/javascript" src="funcions.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>la pagina que muestra un farmaco en especifico</title>
+    <title><?php echo $nom ?></title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
@@ -31,7 +38,7 @@
         </header>
 
         <div id="body">
-            <div id="divEliminar" >
+            <!--<div id="divEliminar" >
                 <div id="eliminarBody">
                     <div id="eliminar-div">
                         <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
@@ -41,29 +48,100 @@
                         
                     </div>
                 </div>
+            </div>-->
+            <div class="search-body">
+            <div id="form-div">
+                <form id="form" action="php/consultaFarmacos.php" method="post">
+                    <input type="text" class="search-form" placeholder="Nom" />
+                    <input type="text" class="search-form" placeholder="Codi" />
+                    <input type="text" class="search-form" placeholder="SMILES" />
+                    <input type="text" class="search-form" placeholder="InChl" />
+                    <input type="text" class="search-form" placeholder="Data" />
+                    <input type="text" class="search-form" placeholder="Estat" />
+                    <input type="submit" class="search-button" value="Cerca" />
+                    <input name="enviat" type="hidden" value="1" />
+                    <input name="Enviar" type="reset" value="Reset" class="search-button" />
+                </form>
             </div>
-            <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina e"/>
-                <div class="inner-first-body">
+        </div>
+        <div id="divEliminar" >
+                <div id="eliminarBody">
+                    <div class="eliminar-div">
+                        <h2 >Seguro que quiere eliminar?</h2>
+                            <form id="form" action="farmac.php" method="post" style="margin-top:0;margin-right:0" >                                                       
+                                <input type="submit" value="Eliminar" class="buttonEspecial" id="eliminar2"></input>
+                                <input type="hidden" value="<?php echo $idFarmaco;?>" name="idFarmaco"></input>
+                                <input type="hidden" value="1" name="eliminar"></input>
+                            </form>                           
+                            <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
+                                                
+                    </div>
+                </div>
+            </div>
+            <?php if($sele==1){    
+                                $idProteina = $_POST["idFarmaco"];
 
-                    <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
-                   
-                    <a href="editar_farmaco.php">
-                        <button class="button" id="editar">Editar</button>
-                    </a>
-                    <h1>NOM FÀRMAC</h1>
+                                $sql = "DELETE FROM farmacos WHERE idFarmaco = ".$idFarmaco;  
+                                
+                                $resultado = mysqli_query($conexion, $sql);
+                                   
+                                $sql2="SELECT * FROM farmacos WHERE idFarmaco = '".$idFarmaco."'";
+                                $resultado2 = mysqli_query($conexion, $sql);
+                                    //if (mysqli_fetch_assoc($resultado2) > 0) {
+                                      //  echo "Error al eliminar <br>";
+                                
+                                    //}  
+                                                            
+                            ?>
+                            <div id="divEliminar"class="divEliminar" style="display:block; margin-top:-200px" >
+                                <div id="eliminarBody">
+                                    <div id="eliminar-div">
+                                        <h2 >Se ha eliminado correctamente</h2>
+                                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarFarmaco()">Acceptar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php 
+                            }
+
+    $idFarmaco=$_POST["idFarmaco"];
+    $sql="SELECT * from farmacos where idFarmaco='".$idFarmaco."'";
+    $resultado=mysqli_query($conexion,$sql);
+    //echo $sql;
+    while($row = mysqli_fetch_assoc($resultado)) {
+
+?>
+            <div class="first-body">
+                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina"/>
+                <div class="inner-first-body">
+                <div style="width:70%">
+                    
+                    <h1 style="text-transform: uppercase;font-weight:bold;"><?php echo $row["nombre"];?></h1>
                     <ul >
-                        <li>Nom</li>
-                        <li>Codi</li>
-                        <li>SMILES</li>
-                        <li>InChl</li>
-                        <li>Data</li>
-                        <li>Estat</li>
+                        <li><b>Nom</b>: <?php echo $row["nombre"];?></li>
+                        <li><b>Codi</b>: <?php echo $row["idFarmaco"];?></li>
+                        <li><b>SMILES</b>: <?php echo $row["SMILES"];?></li>
+                        <li><b>InChl</b>: <?php echo $row["InChl"];?></li>
+                        <li><b>Data</b>: <?php echo $row["fecha"];?></li>
+                        <li><b>Estat</b>: <?php echo $row["estado"];?></li>
                     </ul>
                 </div>
-            </div>            
+                <div style="width:30%; display:flex; flex-wrap:wrap">
+                <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>                                     
+                <form id="form" action="editar_farmaco.php" method="post" style="margin-top:0;margin-right:0" >
+                
+                <input type="submit" value="Editar" class="button" id="editar"></input>
+                        <input type="hidden" value="<?php $row["idFarmaco"];?>" name="idFarmaco"></input>
+                    </form>
+                </div>
+            </div>
+                        
         </div>
-
+<?php
+    }
+    ?>
     <footer class="footer">
 
         <div class="footer-left">

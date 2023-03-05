@@ -1,0 +1,23 @@
+
+  .first-body {
+    height: 500px;
+    width: 700px;
+    background-color: white;
+    border-radius:20px;
+    margin-top: 10px;
+    margin-left: 31%;
+    margin-right:31%;
+    margin-bottom:10px;
+}
+
+.first-body .left-images{
+  margin:50px;
+  height: 200px;
+  width:240px;
+}
+.first-body .right-images {
+      margin: 50px;
+      height: 200px;
+      width: 240px;
+      float:right;
+}

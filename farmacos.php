@@ -1,3 +1,8 @@
+<?php include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
+else $sele="0";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,7 +13,7 @@
     <meta name="title" content="la pagina que muestra todos los farmacos">
     <meta name="keywords" content="farmacos, farmaco, busqueda, imagenes">
     <meta name="description" content="en esta pagina se podran ver todos los farmacos con su designada foto y tambien el motor de busqueda">
-    <link rel="stylesheet" href="css/farmacos.css">
+    <link rel="stylesheet" href="css/individual.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>la pagina que muestra todos los farmacos</title>
@@ -40,6 +45,8 @@
                     <input type="text" class="search-form" placeholder="Data" />
                     <input type="text" class="search-form" placeholder="Estat" />
                     <input type="submit" class="search-button" value="Cerca" />
+                        <input name="enviat" type="hidden" value="1" />
+                        <input name="Enviar" type="reset" value="Reset" class="search-button" />
                 </form>
             </div>
         </div>
@@ -51,48 +58,78 @@
                 <button class="btnNormal">Els meus fàrmacs</button>
             </a>
         </div>
-        <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco paracetamol"/>
-            <div>
-                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
-                    consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
-                </p>
-            </div>
-        </div>
-        <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco petisui"/>
-            <div>
-                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
-                    consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
-                </p>
-                </br>
-            </div>
-        </div>
-        <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco codeina"/>
-            <div>
-                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
-                    consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
-                </p>
-            </div>
-        </div>
-        <div class="first-body">
-            <img class="body-images" src="img/farmaco.jpg" alt="imagen farmaco crack"/>
-            <div>
-                <h1><a href="farmac.php">NOM FÁRMACO</a></h1>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
-                    consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
-                </p>
-            </div>
-        </div>
-
+        <?php
+if ($sele=="0") 
+{	
+    $sql = "SELECT * FROM farmacos";
+    $resultado = mysqli_query($conexion, $sql);
+    if(mysqli_fetch_assoc($resultado)>0){
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $datos = $datos .
+                "<div class='first-body-principal'><img class='body-images' src='" . $row["imagen"] . "'/>
+                <div class='inner-first-body-principal'>
+                <form action='farmac.php'  method='post' name='formu'>
+                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'></h1>
+                            <input type='hidden' value= '".$row["idFarmaco"] ."' name='idFarmaco'/>
+                            <input type='hidden' value= '".$row["nombre"] ."' name='nombre2'/>
+                        </form>
+                        <p>
+            " . $row["descripcion"] . " prueba1 </p></div></div>";
+        }
+        echo $datos;
+    } else
+        echo "Se ha producido un error al cargar los datos..."; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
+}
+else{
+    $sql = "SELECT * FROM farmacos";
+    if ($_POST["nom"] != null) {
+        $nom = $_POST["nom"];
+        $sql = $sql . " where nombre = '$nom'";
+    }
+    if ($_POST["SMILES"] != null) {
+        $resolucio = $_POST["SMILES"];
+        $sql = $sql . " AND SMILES = '$resolucio'";
+    }
+    if ($_POST["InChl"] != null) {
+        $especie = $_POST["InChl"];
+        $sql = $sql . " AND InChl = '$especie'";
+    }
+    if ($_POST["data"] != null) {
+        $fecha = $_POST["data"];
+        $sql = $sql . " AND cast(date,fecha) = '$fecha'";
+    }
+    if ($_POST["estado"] != null) {
+        $fecha = $_POST["estado"];
+        $sql = $sql . " AND estado = '$metode'";
+    }
+    if ($_POST["idFarmaco"] != null) {
+        $idFarmaco = $_POST["idFarmaco"];
+        $sql = $sql . " AND idFarmaco = '$idFarmaco'";
+    }
+    $datos = "";
+    
+    $resultado = mysqli_query($conexion, $sql);
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $datos = $datos .
+                "<div class='first-body'>
+                    <img class='body-images' src='" . $row["imagen"] . "'/>
+                    <div class='inner-first-body-principal'>
+                        <form action='farmac.php'  method='post' name='formu'>
+                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales' style='border: none;background-color: white; color: black;'/></h1>
+                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                        </form>
+                            <p>" . $row["descripcion"] . "prueba 2</p>
+                    </div>
+                </div>";
+            //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";
+        }
+        echo $datos;
+    } else
+        echo "No hay datos con ese filtro"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+}
+?>
+       
         <footer class="footer">
 
             <div class="footer-left">

@@ -13,7 +13,7 @@ else $sele="0";
     <meta name="title" content="la pagina que muestra todas las proteinas">
     <meta name="keywords" content="proteinas, proteina, busqueda, imagenes">
     <meta name="description" content="en esta pagina se podran ver todas las proteinas con su designada foto y tambien el motor de busqueda">
-    <link rel="stylesheet" href="css/farmacos.css">
+    <link rel="stylesheet" href="css/individual.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>la pagina que muestra todas las proteinas</title>
@@ -67,10 +67,10 @@ if ($sele=="0")
     if(mysqli_fetch_assoc($resultado)>0){
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datos = $datos .
-                "<div class='first-body'><img class='body-images' src='" . $row["imagen"] . "'/>
-                <div class='inner-first-body'>
+                "<div class='first-body-principal'><img class='body-images' src='" . $row["imagen"] . "'/>
+                <div class='inner-first-body-principal'>
                 <form action='proteina.php'  method='post' name='formu'>
-                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'></h1>
+                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'></h1>
                             <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
                         </form>
                         <p>
@@ -157,6 +157,7 @@ else{
                         <form action='proteina.php'  method='post' name='formu'>
                             <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'/></h1>
                             <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                            <input type='hidden' value= '".$row["nombre"] ."' name='nombre2'/>
                         </form>
                            <p>" . $row["descripcion"] . "prueba 2</p>
                     </div>

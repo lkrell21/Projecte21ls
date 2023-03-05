@@ -32,16 +32,48 @@
         </header>
 
         <div id="body">
-            <div id="divEliminar">
+        <div id="divEliminar" >
                 <div id="eliminarBody">
-                    <div id="eliminar-div">
-                        <h2 id="confirmacionEliminacion">Segur que vol eliminar?</h2>
-                        <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
-                        <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                        <button id="aceptar" class="btnNormal" class="btnNormal" onclick="cancelarEliminar()">Acceptar</button>
+                    <div class="eliminar-div">
+                        <h2 >Seguro que quiere eliminar?</h2>
+                            <form id="form" action="farmac.php" method="post" style="margin-top:0;margin-right:0" >                                                       
+                                <input type="submit" value="Eliminar" class="buttonEspecial" id="eliminar2"></input>
+                                <input type="hidden" value="<?php echo $idFarmaco;?>" name="idFarmaco"></input>
+                                <input type="hidden" value="1" name="eliminar"></input>
+                            </form>                           
+                            <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
+                                                
                     </div>
                 </div>
             </div>
+            <?php if($sele==1){    
+                                $idProteina = $_POST["idFarmaco"];
+
+                                $sql = "DELETE FROM farmacos WHERE idFarmaco = ".$idFarmaco;  
+                                
+                                $resultado = mysqli_query($conexion, $sql);
+                                   
+                                $sql2="SELECT * FROM farmacos WHERE idFarmaco = '".$idFarmaco."'";
+                                $resultado2 = mysqli_query($conexion, $sql);
+                                    //if (mysqli_fetch_assoc($resultado2) > 0) {
+                                      //  echo "Error al eliminar <br>";
+                                
+                                    //}  
+                                                            
+                            ?>
+                            <div id="divEliminar"class="divEliminar" style="display:block; margin-top:-200px" >
+                                <div id="eliminarBody">
+                                    <div id="eliminar-div">
+                                        <h2 >Se ha eliminado correctamente</h2>
+                                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarFarmaco()">Acceptar</button>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <?php 
+                            }
+                            ?>
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" alt="imagen proteina h"/>
                 <div class="inner-first-body"style="margin-left:0px;">

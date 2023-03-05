@@ -20,7 +20,7 @@ else $sele2="1";
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>la pagina para crear proteinas</title>
+    <title>Introducir Nueva Proteina</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
@@ -53,24 +53,20 @@ if ($sele=="0")
                 </div>
             </div>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina C"/>
-                <div class="inner-first-body"style="margin-left:0px;">
-
-                    <!--<button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button> -->               
-                    <h1>NOM PROTEÏNA</h1>
+                <!--<div class="inner-first-body"style="margin-left:0px;">
+                    <button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button> -->               
+                    <h1 style="text-align:center; margin-top:6%">NUEVA PROTEINA</h1>
                     <form id="form" style="margin-left:0px;" method="post" enctype="multipart/form-data" action="crear_proteina.php">
-                        <input type="text" class="search-form" placeholder="Nom" name="nom"/>
-                        <input type="text" class="search-form" placeholder="Resolució" name="resolucio" />
-                        <input type="text" class="search-form" placeholder="Especie" name="especie"/>
-                         <input type="text" class="search-form" placeholder="Metode" name="metode"/>
-                         <input type="text" class="search-form" placeholder="Descripció" name="descripcio"/>
-                        <input type="file" class="search-form" placeholder="Image" name="imatge" style="margin-top:22px; margin-left:20px; " />
+                        <input type="text" class="search-form" placeholder="Nom" name="nom" required/>
+                        <input type="text" class="search-form" placeholder="Resolució" name="resolucio"  required />
+                        <input type="text" class="search-form" placeholder="Especie" name="especie" required/>
+                         <input type="text" class="search-form" placeholder="Metode" name="metode" required/>
+                         <input type="text" class="search-form" placeholder="Descripció" name="descripcio" required/>
+                        <input type="file" class="search-form" placeholder="Image" name="imatge" style="margin-top:22px; margin-left:20px; " required/>
                         <input type="submit" class="search-button" value="Guardar" name="Enviar"/>
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="reset" class="search-button" />
                     </form>
-
-                </div>
             </div>            
         </div>
         <?php 
