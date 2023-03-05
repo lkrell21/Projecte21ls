@@ -100,19 +100,20 @@ else $sele2="0";
                     $res = move_uploaded_file($_FILES["imatge"]["tmp_name"], $nomImatge);
                     $sql="UPDATE `farmacos` SET `nombre`='".$nom."', SMILES='".$smiles."', fecha='".$fecha."', tipoFichero='".$tipoFichero."', imagen='".$nomImatge."', estado='".$estat."', descripcion ='".$descripcio."' where idFarmaco='".$idFarmaco."'";
                 
-                    echo "IMAGEN: ".$sql."<br>".$nomImatge;
+                    //echo "IMAGEN: ".$sql."<br>".$nomImatge;
                 }
                 else{
 
                     $sql="UPDATE `farmacos` SET `nombre`='".$nom."', SMILES='".$smiles."', fecha='".$fecha."', estado='".$estat."', descripcion ='".$descripcio."' where idFarmaco='".$idFarmaco."'";
-                    echo "SIN IMAGEN: ".$sql;
+                    //echo "SIN IMAGEN: ".$sql;
 
                 }
             }
+            //echo $sql;
                 $resultado=mysqli_query($conexion,$sql);
                 $sql="SELECT * from farmacos where idFarmaco='".$idFarmaco."'";
             $resultado=mysqli_query($conexion,$sql);
-            echo $sql;
+            //echo $sql;
             while($row = mysqli_fetch_assoc($resultado)) {
             
                             ?>
@@ -120,18 +121,19 @@ else $sele2="0";
                 <img class="body-images" src="<?php echo $row["imagen"];?>" alt="imagen proteina"/>
                 <div class="inner-first-body"style="margin-left:px;">
                     <div style="width:70%; ">                      
-                    <h1 style="text-align:center;"><?php echo $row["nombre"];?></h1>
+                    <h1 style="text-align:center; text-transform:capitalize;"><?php echo $row["nombre"];?></h1>
                     <form id="form" style="margin-left:0px;" action="editar_farmaco.php" method="post"enctype="multipart/form-data" style="display:flex;flex-wrap:wrap;">
-                        <input type="text" class="search-form" value="<?php echo $row["nombre"];?>" required/>                        
-                        <input type="text" class="search-form" value="<?php echo $row["SMILES"];?>" required/>
-                        <input type="text" class="search-form" value="<?php echo $row["InChl"];?>" required/>
-                        <input type="text" class="search-form" value="<?php echo $row["estado"];?>" required/>
-                        <input type="text" class="search-form" value="<?php echo $row["descripcion"];?>" required/>
-                        <input type="file" class="search-form" style="margin-top:22px; margin-left:20px; width:30%"/>
+                        <input type="text" class="search-form" value="<?php echo $row["nombre"];?>" name="nom" required/>                        
+                        <input type="text" class="search-form" value="<?php echo $row["SMILES"];?>" name="smiles" required/>
+                        <input type="text" class="search-form" value="<?php echo $row["InChl"];?>" name="inchl" required/>
+                        <input type="text" class="search-form" value="<?php echo $row["estado"];?>" name ="estat"required/>
+                        <input type="text" class="search-form" value="<?php echo $row["descripcion"];?>" name="descripcio" required/>
+                        <input type="file" class="search-form" style="margin-top:22px; margin-left:20px; width:30%" name="imatge"/>
                         <input type="submit" class="search-button" value="Guardar" />
                         <input name="Enviar" type="reset" value="reset" class="search-button" />
+                        <input name="guardar" type="hidden" value="1" />
                         <input type="hidden" value="<?php echo $row["idFarmaco"];?>" name="idFarmaco"></input>
-                    <input type="hidden" value="<?php echo $row["nombre"];?>" name="nombre2"></input>
+                        <input type="hidden" value="<?php echo $row["nombre"];?>" name="nombre2"></input>
                     </form>
                     </div>
                     <div style="width:30%; display:flex; flex-wrap:wrap">

@@ -63,67 +63,33 @@ else $sele="0";
 if ($sele=="0") 
 {	
     $sql = "SELECT * FROM proteinas";
+    $datos = "";
+
     $resultado = mysqli_query($conexion, $sql);
-    if(mysqli_fetch_assoc($resultado)>0){
+    if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datos = $datos .
-                "<div class='first-body-principal'><img class='body-images' src='" . $row["imagen"] . "'/>
+            "<div class='first-body-principal'><img class='body-images' src='" . $row["imagen"] . "'/>
                 <div class='inner-first-body-principal'>
-                <form action='proteina.php'  method='post' name='formu'>
-                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'></h1>
-                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
-                        </form>
-                        <p>
-            " . $row["descripcion"] . " </p></div></div>";
+                    <form action='proteina.php'  method='post' name='formu'>
+                        <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'></h1>
+                        <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                    </form>
+                    <p>" . $row["descripcion"] . " </p>
+                </div>
+            </div>";
+            //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";
         }
         echo $datos;
     } else
-        echo "Se ha producido un error al cargar los datos..."; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
-    ?>
-               <!-- <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 11"/>
-                <div class="inner-first-body">
-                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
-                        consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
-                    </p>
-                </div>
-            </div>
-            <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 12"/>
-                <div class="inner-first-body">
-                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium 
-                    consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.</p>
-                </div>
-            </div>
-            <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina 13"/>
-                <div class="inner-first-body">
-                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
-                        consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
-                    </p>
-                </div>
-            </div>
-            <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen prtoeina 14"/>
-                <div class="inner-first-body">
-                    <h1><a href="proteina.php">NOM PROTEÏNA</a></h1>
-                    <p>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.</br> Eligendi rerum repellat magnam similique praesentium
-                        consectetur odit modi, asperiores, ipsum dolor ex, repellendus delectus.</br> Eligendi architecto eos, unde earum commodi aut.
-                    </p>
-                </div>
-            </div>-->
-<?php }
+        echo "Ups... Se ha producido un error al cargar los datos!"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+}
 
 else{
-    $sql = "SELECT * FROM proteinas";
+    $sql = "SELECT * FROM proteinas where idUsuario in(select idUsuario from proteinas)";
     if ($_POST["nom"] != null) {
         $nom = $_POST["nom"];
-        $sql = $sql . " where nombre = '$nom'";
+        $sql = $sql . " AND nombre = '$nom'";
     }
     if ($_POST["resolucio"] != null) {
         $resolucio = $_POST["resolucio"];
@@ -151,17 +117,15 @@ else{
     if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datos = $datos .
-                "<div class='first-body'>
-                    <img class='body-images' src='" . $row["imagen"] . "'/>
-                    <div class='inner-first-body'>
-                        <form action='proteina.php'  method='post' name='formu'>
-                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'/></h1>
-                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
-                            <input type='hidden' value= '".$row["nombre"] ."' name='nombre2'/>
-                        </form>
-                           <p>" . $row["descripcion"] . "</p>
-                    </div>
-                </div>";
+            "<div class='first-body-principal'><img class='body-images' src='" . $row["imagen"] . "'/>
+                <div class='inner-first-body-principal'>
+                    <form action='proteina.php'  method='post' name='formu'>
+                        <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'></h1>
+                        <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                    </form>
+                    <p>" . $row["descripcion"] . " </p>
+                </div>
+            </div>";
             //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";
         }
         echo $datos;

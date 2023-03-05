@@ -135,7 +135,8 @@ else $sele2="0";
                             <input type="file" class="search-form"  name="imatge" style="margin-top:22px; margin-left:20px; width:30%" />
                             <input type="submit" class="search-button" value="Guardar" name="Guardar"/>
                             <input name="guardar" type="hidden" value="1" />
-                            <input name="idProteina" type="hidden" value="<?php echo $row["idProteina"];?>" name="idProteina" />
+                            <input name="idProteina" type="hidden" value="<?php echo $row["idProteina"];?>" />
+                            <input name="nombre2" type="hidden" value="<?php echo $row["nombre"];?>" />
                             <input type="reset" value="reset" class="search-button" />
                         </form>
                     </div>

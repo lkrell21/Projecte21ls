@@ -2,6 +2,7 @@
 error_reporting(E_ALL ^ E_NOTICE);
 if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
+$idUsuario="2";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +17,7 @@ else $sele="0";
     <link rel="stylesheet" href="css/individual.css">
     <link rel="stylesheet" href="css/general.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>la pagina que muestra todos los farmacos</title>
+    <title>Consulta farmacos</title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
@@ -37,13 +38,13 @@ else $sele="0";
     <div id="body">
         <div class="search-body">
             <div id="form-div">
-                <form id="form" action="php/consultaFarmacos.php" method="post">
-                    <input type="text" class="search-form" placeholder="Nom" />
-                    <input type="text" class="search-form" placeholder="Codi" />
-                    <input type="text" class="search-form" placeholder="SMILES" />
-                    <input type="text" class="search-form" placeholder="InChl" />
-                    <input type="text" class="search-form" placeholder="Data" />
-                    <input type="text" class="search-form" placeholder="Estat" />
+                <form id="form" action="farmacos.php" method="post">
+                    <input type="text" class="search-form" placeholder="Nom" name="nom"/>
+                    <input type="text" class="search-form" placeholder="Codi" name="idFarmaco"/>
+                    <input type="text" class="search-form" placeholder="SMILES" name="smiles"/>
+                    <input type="text" class="search-form" placeholder="InChl" name="inchl"/>
+                    <input type="text" class="search-form" placeholder="Data" name="fecha"/>
+                    <input type="text" class="search-form" placeholder="Estat" name="estat"/>
                     <input type="submit" class="search-button" value="Cerca" />
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="Reset" class="search-button" />
@@ -61,30 +62,56 @@ else $sele="0";
         <?php
 if ($sele=="0") 
 {	
-    $sql = "SELECT * FROM farmacos";
+    $sql = "SELECT * FROM farmacos ";
+    $datos = "";
+    
     $resultado = mysqli_query($conexion, $sql);
-    if(mysqli_fetch_assoc($resultado)>0){
+    if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datos = $datos .
-                "<div class='first-body-principal'><img class='body-images' src='" . $row["imagen"] . "'/>
-                <div class='inner-first-body-principal'>
-                <form action='farmac.php'  method='post' name='formu'>
+                "<div class='first-body'>
+                    <img class='body-images' src='" . $row["imagen"] . "'/>
+                    <div class='inner-first-body-principal'>
+                        <form action='farmac.php'  method='post' name='formu'>
+                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales' style='border: none;background-color: white; color: black;'/></h1>
+                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                        </form>
+                            <p>" . $row["descripcion"] . "prueba 2</p>
+                    </div>
+                </div>";
+        }
+        echo $datos;
+    } else
+        echo "Ups... Se ha producido un error al cargar los datos!"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+}
+    /*$sql = "SELECT * FROM farmacos";
+    $resultado = mysqli_query($conexion, $sql);
+    if(mysqli_fetch_assoc($resultado)> 0){
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            //$datos="";
+            echo
+                "<div class='first-body-principal'>
+                    <img class='body-images' src='" . $row["imagen"] . "'/>
+                    <div class='inner-first-body-principal'>
+                        <form action='farmac.php'  method='post' name='formu'>
                             <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'></h1>
                             <input type='hidden' value= '".$row["idFarmaco"] ."' name='idFarmaco'/>
                             <input type='hidden' value= '".$row["nombre"] ."' name='nombre2'/>
                         </form>
-                        <p>
-            " . $row["descripcion"] . " prueba1 </p></div></div>";
+                        <p>" . $row["descripcion"] . "</p>
+                    </div>
+                </div>";
+                //echo $datos;
         }
-        echo $datos;
+        //echo $datos;
     } else
         echo "Se ha producido un error al cargar los datos..."; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
-}
+}*/
 else{
-    $sql = "SELECT * FROM farmacos";
+    $sql = "SELECT * FROM farmacos where idUsuario in(select idUsuario from farmacos)";
     if ($_POST["nom"] != null) {
         $nom = $_POST["nom"];
-        $sql = $sql . " where nombre = '$nom'";
+        $sql = $sql . " AND nombre = '$nom'";
     }
     if ($_POST["SMILES"] != null) {
         $resolucio = $_POST["SMILES"];
