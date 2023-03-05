@@ -1,9 +1,11 @@
 <?php include_once('conexionBBDD.php');
 error_reporting(E_ALL ^ E_NOTICE);
-$nom=ucfirst($_POST["nombre"]);   
+$nom=ucfirst($_POST["nombre2"]);   
 $idProteina=$_POST["idProteina"];
 if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
 else $sele="0";
+if (isset($_POST['guardar'])) $sele2=$_POST['guardar'];
+else $sele2="0";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +22,7 @@ else $sele="0";
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>la pagina para editar proteinas</title>
+    <title><?php echo "Modificar ".$nom; ?></title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
@@ -79,26 +81,70 @@ else $sele="0";
                 </div>
             </div>
 
-            <?php }?>
+            <?php }
+            if($sele2=="1"){
+                $nom=$_POST["nom"];
+                $resolucio=$_POST["resolucio"];
+                //$idProteina=$_POST["idProteina"];
+            
+                $especie=$_POST["especie"];
+            
+                $fecha=date("Y-m-d.H:i:s");
+            
+                $metode=$_POST["metode"];
+                //$idProteina=$_POST["idProteina"];
+                $imatge=$_FILES["imatge"]["name"];
+               
+                $info = pathinfo($imatge);
+                $tipoFichero= $info["extension"];
+                $nomImatge = "img/proteinas/".$nom.".".$tipoFichero;
+                $descripcio=$_POST["descripcio"];
+                $fecha=date("Y-m-d.H:i:s");
+
+                if (is_uploaded_file($_FILES["imatge"]["tmp_name"])) {
+                    $sql="UPDATE `proteinas` SET `nombre`='".$nom."', resolucion='".$resolucio."', fecha='".$fecha."', tipoFichero='".$tipoFichero."', imagen='".$nomImatge."', metodo='".$metode."', descripcion ='".$descripcio."' where idProteina='".$idProteina."'";
+                
+                    //echo "IMAGEN: ".$sql."<br>".$nomImatge;
+                }
+                else{
+
+                    $sql="UPDATE `proteinas` SET `nombre`='".$nom."', resolucion='".$resolucio."', fecha='".$fecha."', metodo='".$metode."', descripcion ='".$descripcio."' where idProteina='".$idProteina."'";
+                    //echo "SIN IMAGEN: ".$sql;
+
+                }
+                $resultado=mysqli_query($conexion,$sql);
+            }
+            $sql="SELECT * from proteinas where idProteina='".$idProteina."'";
+            $resultado=mysqli_query($conexion,$sql);
+           // $row = mysqli_fetch_assoc($resultado);
+            while($row = mysqli_fetch_assoc($resultado)) {
+            ?>
 
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" alt="imagen proteina b"/>
                 <div class="inner-first-body"style="margin-left:0px;">
-
-                    <button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button>                
-                    <h1>NOM PROTEÏNA</h1>
-                    <form id="form" style="margin-left:0px;">
-                        <input type="text" class="search-form" placeholder="Nom" />
-                        <input type="text" class="search-form" placeholder="Resolució" />
-                        <input type="text" class="search-form" placeholder="Especie" />
-                        <input type="text" class="search-form" placeholder="Data" />
-                        <input type="text" class="search-form" placeholder="Metode" />
-                        <input type="text" class="search-form" placeholder="Codi de la proteïna" />
-                        <input type="submit" class="search-button" value="Guardar" />
-                    </form>
-
-                </div>
-            </div>            
+                    <div style="width:70%">  
+                        <h1 style = "text-transform:uppercase;font-weight:bold;"><?php echo $row["nombre"];?></h1>
+                        <form id="form" style="margin-left:0px;" method="post" enctype="multipart/form-data" action="editar_proteina.php">
+                            <input type="text" class="search-form" value="<?php echo $row["nombre"];?>" name="nom" required/>
+                            <input type="text" class="search-form" value="<?php echo $row["resolucion"];?>" name="resolucio"  required />
+                            <input type="text" class="search-form" value="<?php echo $row["especie"];?>" name="especie" required/>
+                            <input type="text" class="search-form" value="<?php echo $row["metodo"];?>" name="metode" required/>
+                            <input type="text" class="search-form" value="<?php echo $row["descripcion"];?>" name="descripcio" required/>
+                            <input type="file" class="search-form"  name="imatge" style="margin-top:22px; margin-left:20px; " />
+                            <input type="submit" class="search-button" value="Guardar" name="Guardar"/>
+                            <input name="guardar" type="hidden" value="1" />
+                            <input name="idProteina" type="hidden" value="<?php echo $row["idProteina"];?>" name="idProteina" />
+                            <input type="reset" value="reset" class="search-button" />
+                        </form>
+                    </div>
+                    <div style="width:30%; display:flex; flex-wrap:wrap">
+                        <button class="button" id="eliminar" onclick="eliminar()" style="float:right">Eliminar</button>
+                    </div>
+            </div>   
+            <?php } //}
+           // else{}
+            ?>         
         </div>
 
     <footer class="footer">

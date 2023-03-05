@@ -123,9 +123,11 @@ else $sele="0";
                 </div>
                 <div style="width:30%; display:flex; flex-wrap:wrap">
                     <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
-                    <form id="form" action="editar_proteina.php" method="post" style="margin-top:0;margin-right:0" >                                                       
-                            <input type="submit" value="Editar" class="button" id="editar"></input>
-                            <input type="hidden" value="<?php $row["idFarmaco"];?>" name="idFarmaco"></input>
+                    <form id="form" action="editar_proteina.php" method="post" style="margin-top:0;margin-right:0" enctype="multipart/form-data">                                                       
+                            <input type="submit" value="Editar" class="button" id="editar" name="enviar" ></input>
+                            <input type="hidden" value="1" name="editar"></input>
+                            <input type="hidden" value="<?php echo $row["idProteina"];?>" name="idProteina"></input>
+                            <input type="hidden" value="<?php echo $row["nombre"];?>" name="nombre2"></input>
                     </form>
                 </div>
             </div>            

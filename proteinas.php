@@ -74,7 +74,7 @@ if ($sele=="0")
                             <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
                         </form>
                         <p>
-            " . $row["descripcion"] . " prueba1 </p></div></div>";
+            " . $row["descripcion"]; . " </p></div></div>";
         }
         echo $datos;
     } else
@@ -159,7 +159,7 @@ else{
                             <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
                             <input type='hidden' value= '".$row["nombre"] ."' name='nombre2'/>
                         </form>
-                           <p>" . $row["descripcion"] . "prueba 2</p>
+                           <p>" . $row["descripcion"] . "</p>
                     </div>
                 </div>";
             //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";

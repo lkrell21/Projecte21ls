@@ -60,8 +60,8 @@ if ($sele=="0")
                         <input type="text" class="search-form" placeholder="Nom" name="nom" required/>
                         <input type="text" class="search-form" placeholder="Resolució" name="resolucio"  required />
                         <input type="text" class="search-form" placeholder="Especie" name="especie" required/>
-                         <input type="text" class="search-form" placeholder="Metode" name="metode" required/>
-                         <input type="text" class="search-form" placeholder="Descripció" name="descripcio" required/>
+                        <input type="text" class="search-form" placeholder="Metode" name="metode" required/>
+                        <input type="text" class="search-form" placeholder="Descripció" name="descripcio" required/>
                         <input type="file" class="search-form" placeholder="Image" name="imatge" style="margin-top:22px; margin-left:20px; " required/>
                         <input type="submit" class="search-button" value="Guardar" name="Enviar"/>
                         <input name="enviat" type="hidden" value="1" />
