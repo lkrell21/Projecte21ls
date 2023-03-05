@@ -1,3 +1,12 @@
+<?php include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+$nom=ucfirst($_POST["nombre2"]);   
+$idFarmaco=$_POST["idFarmaco"];
+if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
+else $sele="0";
+if (isset($_POST['guardar'])) $sele2=$_POST['guardar'];
+else $sele2="0";
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,7 +22,7 @@
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>la pagina para editar farmacos</title>
+    <title><?php echo $nom;?></title>
 </head>
 <body>
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
@@ -73,25 +82,63 @@
 
                             <?php 
                             }
+            if($sele2=="1"){
+                $nom=$_POST["nom"];
+                $smiles =$_POST ["smiles"];
+                $inchl =$_POST ["inchl"];
+                $fecha=date("Y-m-d.H:i:s");
+                $estat =$_POST ["estat"];
+                $descripcio =$_POST ["descripcio"];
+                $imatge=$_FILES["imatge"]["name"];
+                $info = pathinfo($imatge);
+                $tipoFichero= $info["extension"];
+                $nomImatge = "img/farmacos/".$nom.".".$tipoFichero;
+                //$idUsuario= 2;
+                
+
+                if (is_uploaded_file($_FILES["imatge"]["tmp_name"])) {
+                    $res = move_uploaded_file($_FILES["imatge"]["tmp_name"], $nomImatge);
+                    $sql="UPDATE `farmacos` SET `nombre`='".$nom."', SMILES='".$smiles."', fecha='".$fecha."', tipoFichero='".$tipoFichero."', imagen='".$nomImatge."', estado='".$estat."', descripcion ='".$descripcio."' where idFarmaco='".$idFarmaco."'";
+                
+                    echo "IMAGEN: ".$sql."<br>".$nomImatge;
+                }
+                else{
+
+                    $sql="UPDATE `farmacos` SET `nombre`='".$nom."', SMILES='".$smiles."', fecha='".$fecha."', estado='".$estat."', descripcion ='".$descripcio."' where idFarmaco='".$idFarmaco."'";
+                    echo "SIN IMAGEN: ".$sql;
+
+                }
+            }
+                $resultado=mysqli_query($conexion,$sql);
+                $sql="SELECT * from farmacos where idFarmaco='".$idFarmaco."'";
+            $resultado=mysqli_query($conexion,$sql);
+            echo $sql;
+            while($row = mysqli_fetch_assoc($resultado)) {
+            
                             ?>
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina h"/>
-                <div class="inner-first-body"style="margin-left:0px;">
-
-                    <button class="buttonEspecial" id="eliminar" onclick="eliminar()">Eliminar</button>                
-                    <h1>NOM FÀRMAC</h1>
-                    <form id="form" style="margin-left:0px;" action="editarFarmaco" method="post"enctype="multipart/form-data">
-                        <input type="text" class="search-form" placeholder="Nom" />                        
-                        <input type="text" class="search-form" placeholder="SMILES" />
-                        <input type="text" class="search-form" placeholder="InChl" />
-                        <input type="text" class="search-form" placeholder="Estat" />
-                        <input type="text" class="search-form" placeholder="Descripció" />
-                        <input type="file" class="search-form" placeholder="Imatge" style="margin-top:22px; margin-left:20px; "/>
+                <img class="body-images" src="<?php echo $row["imagen"];?>" alt="imagen proteina"/>
+                <div class="inner-first-body"style="margin-left:px;">
+                    <div style="width:70%; ">                      
+                    <h1 style="text-align:center;"><?php echo $row["nombre"];?></h1>
+                    <form id="form" style="margin-left:0px;" action="editar_farmaco.php" method="post"enctype="multipart/form-data" style="display:flex;flex-wrap:wrap;">
+                        <input type="text" class="search-form" value="<?php echo $row["nombre"];?>" required/>                        
+                        <input type="text" class="search-form" value="<?php echo $row["SMILES"];?>" required/>
+                        <input type="text" class="search-form" value="<?php echo $row["InChl"];?>" required/>
+                        <input type="text" class="search-form" value="<?php echo $row["estado"];?>" required/>
+                        <input type="text" class="search-form" value="<?php echo $row["descripcion"];?>" required/>
+                        <input type="file" class="search-form" style="margin-top:22px; margin-left:20px; width:30%"/>
                         <input type="submit" class="search-button" value="Guardar" />
+                        <input name="Enviar" type="reset" value="reset" class="search-button" />
+                        <input type="hidden" value="<?php echo $row["idFarmaco"];?>" name="idFarmaco"></input>
+                    <input type="hidden" value="<?php echo $row["nombre"];?>" name="nombre2"></input>
                     </form>
-
+                    </div>
+                    <div style="width:30%; display:flex; flex-wrap:wrap">
+                        <button class="button" id="eliminar" onclick="eliminar()" style="float:right">Eliminar</button>
+                    </div>
                 </div>
-            </div>            
+            </div>   <?php }?>         
         </div>
 
     <footer class="footer">

@@ -74,7 +74,7 @@ if ($sele=="0")
                             <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
                         </form>
                         <p>
-            " . $row["descripcion"]; . " </p></div></div>";
+            " . $row["descripcion"] . " </p></div></div>";
         }
         echo $datos;
     } else

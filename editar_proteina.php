@@ -102,6 +102,7 @@ else $sele2="0";
                 $fecha=date("Y-m-d.H:i:s");
 
                 if (is_uploaded_file($_FILES["imatge"]["tmp_name"])) {
+                    $res = move_uploaded_file($_FILES["imatge"]["tmp_name"], $nomImatge);
                     $sql="UPDATE `proteinas` SET `nombre`='".$nom."', resolucion='".$resolucio."', fecha='".$fecha."', tipoFichero='".$tipoFichero."', imagen='".$nomImatge."', metodo='".$metode."', descripcion ='".$descripcio."' where idProteina='".$idProteina."'";
                 
                     //echo "IMAGEN: ".$sql."<br>".$nomImatge;
@@ -121,7 +122,7 @@ else $sele2="0";
             ?>
 
             <div class="first-body">
-                <img class="body-images" src="img/proteina.jpg" alt="imagen proteina b"/>
+                <img class="body-images" src="<?php echo $row["imagen"];?>" alt="imagen proteina b"/>
                 <div class="inner-first-body"style="margin-left:0px;">
                     <div style="width:70%">  
                         <h1 style = "text-transform:uppercase;font-weight:bold;"><?php echo $row["nombre"];?></h1>
@@ -131,7 +132,7 @@ else $sele2="0";
                             <input type="text" class="search-form" value="<?php echo $row["especie"];?>" name="especie" required/>
                             <input type="text" class="search-form" value="<?php echo $row["metodo"];?>" name="metode" required/>
                             <input type="text" class="search-form" value="<?php echo $row["descripcion"];?>" name="descripcio" required/>
-                            <input type="file" class="search-form"  name="imatge" style="margin-top:22px; margin-left:20px; " />
+                            <input type="file" class="search-form"  name="imatge" style="margin-top:22px; margin-left:20px; width:30%" />
                             <input type="submit" class="search-button" value="Guardar" name="Guardar"/>
                             <input name="guardar" type="hidden" value="1" />
                             <input name="idProteina" type="hidden" value="<?php echo $row["idProteina"];?>" name="idProteina" />
