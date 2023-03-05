@@ -74,7 +74,7 @@ if ($sele=="0")
                             <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
                         </form>
                         <p>
-            " . $row["descripcion"] . "</p></div></div>";
+            " . $row["descripcion"] . " prueba1 </p></div></div>";
         }
         echo $datos;
     } else
@@ -148,19 +148,19 @@ else{
     $datos = "";
   
     $resultado = mysqli_query($conexion, $sql);
-
     if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datos = $datos .
                 "<div class='first-body'>
                     <img class='body-images' src='" . $row["imagen"] . "'/>
                     <div class='inner-first-body'>
-                        <form action='proteina.php  method='post' name='formu'>
+                        <form action='proteina.php'  method='post' name='formu'>
                             <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'/></h1>
                             <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
                         </form>
-                           
-            " . $row["descripcion"] . "</p></div></form></div>";
+                           <p>" . $row["descripcion"] . "prueba 2</p>
+                    </div>
+                </div>";
             //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";
         }
         echo $datos;

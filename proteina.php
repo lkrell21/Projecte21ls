@@ -1,7 +1,7 @@
 <?php include_once('conexionBBDD.php');
 error_reporting(E_ALL ^ E_NOTICE);
-if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
-else $sele="0";
+//if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
+//else $sele="0";
 
 ?>
 <!DOCTYPE html>
@@ -64,7 +64,7 @@ else $sele="0";
                 </div>
             </div>
 <?php 
-if($sele=="0"){
+//if($sele=="0"){
     $idProteina=$_POST["idProteina"];
     $sql="SELECT * from proteinas where idProteina='".$idProteina."'";
     $resultado=mysqli_query($conexion,$sql);
@@ -97,9 +97,9 @@ if($sele=="0"){
             </div>            
         </div>
 <?php
-}}else{
-    echo"Error al cargar los datos.";
-}
+}//}else{
+   // echo"Error al cargar los datos.";
+//}
 ?>
     <footer class="footer">
 
