@@ -24,5 +24,46 @@ function aceptarEliminarFarmaco(){
     document.getElementById("divEliminar").style.display = "none";
     location.href = "farmacos.php";
 }
+function eliminarUsuarios(){
+    document.getElementById("btnEliminarUsuarios").style.display="block";
+    document.getElementById("enviar").value = "2";
+    document.getElementById("divInputs").style.display = "flex";
+    document.getElementById("divConsultas").style.display = "none";
+    var arrayOfElements=document.getElementsByClassName('eliminarUsuarios');
+    var lengthOfArray=arrayOfElements.length;
+    for (var i=0; i<lengthOfArray;i++){
+        arrayOfElements[i].style.display='block';
+    }
+    var arrayOfElements=document.getElementsByClassName('modificarUsuarios');
+    var lengthOfArray=arrayOfElements.length;
+    for (var i=0; i<lengthOfArray;i++){
+        arrayOfElements[i].style.display='none';
+    }
+    //document.querySelectorAll("modificarUsuarios").forEach(a=>a.style.display = "none");
+    //document.querySelectorAll("eliminarUsuarios").forEach(a=>a.style.display = "block");
+}
+function modificarUsuarios(){
+    document.getElementById("btnEliminarUsuarios").style.display="none";
+    document.getElementById("enviar").value = "1";
+    document.getElementById("divInputs").style.display = "flex";
+    document.getElementById("divConsultas").style.display = "none";
+    var arrayOfElements=document.getElementsByClassName('modificarUsuarios');
+    var lengthOfArray=arrayOfElements.length;
+    for (var i=0; i<lengthOfArray;i++){
+        arrayOfElements[i].style.display='block';
+    }
+    var arrayOfElements=document.getElementsByClassName('eliminarUsuarios');
+    var lengthOfArray=arrayOfElements.length;
+    for (var i=0; i<lengthOfArray;i++){
+        arrayOfElements[i].style.display='none';
+    }
+    
+}
+function consultarUsuarios(){
+    document.getElementById("btnEliminarUsuarios").style.display="none";
+    document.getElementById("enviar").value = "0";
+    document.getElementById("divInputs").style.display = "none";
+    document.getElementById("divConsultas").style.display = "flex";
+}
 
 // JavaScript source code
