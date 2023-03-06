@@ -1,7 +1,14 @@
 <?php include_once('conexionBBDD.php');
+
 error_reporting(E_ALL ^ E_NOTICE);
 if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
+session_start();
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuari=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,14 +33,14 @@ else $sele="0";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
-
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
         </nav>
         <a href="login.php">
         <button id="btnLogin" title="link al login">Login</button>
         </a>
         </header>
-
         <div id="body">
             <div class="search-body">
                 <div id="form-div">
@@ -50,15 +57,17 @@ else $sele="0";
                     </form>
                 </div>
             </div>
-            <div class="menuBotones">
-                <a href="crear_proteina.php" class="barraBotonesLink">
+            <?php if($rol=="administrador" || $rol=="usuario"){
+              echo '<div class="menuBotones">
+            
+              <a href="crear_proteina.php" class="barraBotonesLink">
                     <button class="btnNormal">Crear proteïna</button>
                 </a>
                 <a href="misProteinas.php" class="barraBotonesLink">
                     <button class="btnNormal">Les meves proteïnes</button>
                 </a>
-            </div>
-            
+            </div>';
+             }?>
             <?php
 if ($sele=="0") 
 {	
@@ -142,7 +151,9 @@ else{
                 <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
                 <a href="farmacos.php" title="link a farmacos">Farmacos</a>
                 <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-                <a href="php/listaUsers.php" title="link a users">Users</a>
+                <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
             </p>
         </div>
 

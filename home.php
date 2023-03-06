@@ -1,3 +1,24 @@
+<?php 
+include_once('conexionBBDD.php');
+error_reporting(E_ALL ^ E_NOTICE);
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+$btnLog = "<a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -14,6 +35,7 @@
     <title>Página principal</title>
 </head>
 <body>
+
     <header style="background-image: url('img/header3.jpg'); height: 200px;">
         <h1 id="header">Lucas & Sheila webproject</h1>
     <nav style ="margin-top: 55px;">
@@ -21,12 +43,16 @@
         <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
         <a href="farmacos.php" title="link a farmacos">Farmacos</a>
         <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-        <a href="php/listaUsers.php" title="link a users">Users</a>
+        <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
+        
+        
         
     </nav>
-    <a href="login.php">
-    <button id="btnLogin" title="link al login">Login</button>
-    </a>
+    <?php
+    echo $btnLog;
+    ?>
     </header>
     
     <div id="body">

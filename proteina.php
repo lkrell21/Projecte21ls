@@ -4,6 +4,15 @@ $nom=ucfirst($_POST["nombre"]);
 $idProteina=$_POST["idProteina"];
 if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
 else $sele="0";
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,7 +41,9 @@ else $sele="0";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
         <a href="login.php">
@@ -146,7 +157,9 @@ else $sele="0";
                 <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
                 <a href="farmacos.php" title="link a farmacos">Farmacos</a>
                 <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-                <a href="php/listaUsers.php" title="link a users">Users</a>
+                <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
             </p>
         </div>
 

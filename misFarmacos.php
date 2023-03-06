@@ -2,7 +2,23 @@
 error_reporting(E_ALL ^ E_NOTICE);
 if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
-$idUsuario="2";
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+$btnLog = "<a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,7 +43,9 @@ $idUsuario="2";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+                echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+            }?>
 
         </nav>
         <a href="login.php">
@@ -78,7 +96,7 @@ if ($sele=="0")
         }
         echo $datos;
     } else
-        echo "Se ha producido un error al cargar los datos..."; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
+    echo "<div class='first-body-principal'><p>Se ha producido un error al cargar los datos... O no tienes farmacos creados?</p></div>"; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
 }
 else{
     $sql = "SELECT * FROM farmacos where idUsuario in(select idUsuario from farmacos)";
@@ -139,7 +157,9 @@ else{
                     <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
                     <a href="farmacos.php" title="link a farmacos">Farmacos</a>
                     <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-                    <a href="php/listaUsers.php" title="link a users">Users</a>
+                    <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
                 </p>
             </div>
 

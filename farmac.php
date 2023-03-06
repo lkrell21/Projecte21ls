@@ -4,6 +4,14 @@ $nom=ucfirst($_POST["nombre2"]);
 $idFarmaco= $_POST["idFarmaco"];
 if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
 else $sele="0";
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -29,7 +37,9 @@ else $sele="0";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
         <a href="login.php">
@@ -79,40 +89,40 @@ else $sele="0";
                 </div>
             </div>
             <?php if($sele==1){    
-                                $idProteina = $_POST["idFarmaco"];
+                $idProteina = $_POST["idFarmaco"];
 
-                                $sql = "DELETE FROM farmacos WHERE idFarmaco = ".$idFarmaco;  
-                                
-                                $resultado = mysqli_query($conexion, $sql);
-                                   
-                                $sql2="SELECT * FROM farmacos WHERE idFarmaco = '".$idFarmaco."'";
-                                $resultado2 = mysqli_query($conexion, $sql);
-                                    //if (mysqli_fetch_assoc($resultado2) > 0) {
-                                      //  echo "Error al eliminar <br>";
-                                
-                                    //}  
-                                                            
-                            ?>
-                            <div id="divEliminar"class="divEliminar" style="display:block; margin-top:-200px" >
-                                <div id="eliminarBody">
-                                    <div id="eliminar-div">
-                                        <h2 >Se ha eliminado correctamente</h2>
-                                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarFarmaco()">Acceptar</button>
-                                        
-                                    </div>
-                                </div>
-                            </div>
+                $sql = "DELETE FROM farmacos WHERE idFarmaco = ".$idFarmaco;  
+                
+                $resultado = mysqli_query($conexion, $sql);
+                    
+                $sql2="SELECT * FROM farmacos WHERE idFarmaco = '".$idFarmaco."'";
+                $resultado2 = mysqli_query($conexion, $sql);
+                    //if (mysqli_fetch_assoc($resultado2) > 0) {
+                        //  echo "Error al eliminar <br>";
+                
+                    //}  
+                                            
+            ?>
+            <div id="divEliminar"class="divEliminar" style="display:block; margin-top:-200px" >
+                <div id="eliminarBody">
+                    <div id="eliminar-div">
+                        <h2 >Se ha eliminado correctamente</h2>
+                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarFarmaco()">Acceptar</button>
+                        
+                    </div>
+                </div>
+            </div>
 
-                            <?php 
-                            }
+            <?php 
+            }
 
-    $idFarmaco=$_POST["idFarmaco"];
-    $sql="SELECT * from farmacos where idFarmaco='".$idFarmaco."'";
-    $resultado=mysqli_query($conexion,$sql);
-    //echo $sql;
-    while($row = mysqli_fetch_assoc($resultado)) {
+                $idFarmaco=$_POST["idFarmaco"];
+                $sql="SELECT * from farmacos where idFarmaco='".$idFarmaco."'";
+                $resultado=mysqli_query($conexion,$sql);
+                //echo $sql;
+                while($row = mysqli_fetch_assoc($resultado)) {
 
-?>
+            ?>
             <div class="first-body">
                 <img class="body-images" src="img/proteina.jpg" alt="imagen proteina"/>
                 <div class="inner-first-body">
@@ -151,7 +161,9 @@ else $sele="0";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
             </p>
         </div>
 

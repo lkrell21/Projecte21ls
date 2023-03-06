@@ -2,7 +2,23 @@
 error_reporting(E_ALL ^ E_NOTICE);
 if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
-$idUsuario='2';
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+$btnLog = "<a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,12 +43,12 @@ $idUsuario='2';
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php echo $btnLog;?>
         </header>
 
         <div id="body">
@@ -61,13 +77,14 @@ $idUsuario='2';
 if ($sele=="0") 
 {	
     $sql = "SELECT * FROM proteinas where idUsuario ='".$idUsuario."'";
-    $datos="";
+   // $sql = "SELECT * FROM proteinas";
+    $datos = "";
+
     $resultado = mysqli_query($conexion, $sql);
-    if(mysqli_fetch_assoc($resultado)>0){
+    if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datos = $datos .
-            "<div class='first-body-principal'>
-                <img class='body-images' src='" . $row["imagen"] . "'/>
+            "<div class='first-body-principal'><img class='body-images' src='" . $row["imagen"] . "'/>
                 <div class='inner-first-body-principal'>
                     <form action='proteina.php'  method='post' name='formu'>
                         <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'></h1>
@@ -76,12 +93,13 @@ if ($sele=="0")
                     <p>" . $row["descripcion"] . " </p>
                 </div>
             </div>";
+            //<h1>id: " . $row["idProteina"]. " - Nom: " . $row["nombre"]. " - Resolucio" . $row["resolucion"]."</h1>";
         }
         echo $datos;
-    } else
+    } else{
         echo "<div class='first-body-principal'><p>Se ha producido un error al cargar los datos...</p></div>"; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
     }
-
+}
 else{
     $sql = "SELECT * FROM proteinas where idUsuario='".$idUsuario."' ";
     if ($_POST["nom"] != null) {
@@ -138,7 +156,9 @@ else{
                 <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
                 <a href="farmacos.php" title="link a farmacos">Farmacos</a>
                 <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-                <a href="php/listaUsers.php" title="link a users">Users</a>
+                <?php if($rol=="administrador"){
+                    echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+                }?>
             </p>
         </div>
 

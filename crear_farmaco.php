@@ -4,6 +4,15 @@ if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
 if (isset($_POST['enviat2'])) $sele2="0";
 else $sele2="1";
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -20,7 +29,7 @@ else $sele2="1";
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>la pagina para crear farmacos</title>
+    <title>Nuevo Fármaco</title>
 </head>
 <body>
 
@@ -31,7 +40,9 @@ else $sele2="1";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
         <a href="login.php">
@@ -87,7 +98,6 @@ else
     $info = pathinfo($imatge);
     $tipoFichero= $info["extension"];
     $nomImatge = "img/farmacos/".$nom.".".$tipoFichero;
-    $idUsuario= 2;
     $res = move_uploaded_file($_FILES["imatge"]["tmp_name"], $nomImatge);
     //`fecha`,
     
@@ -117,7 +127,9 @@ else
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
             </p>
         </div>
 

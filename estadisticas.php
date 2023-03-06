@@ -1,3 +1,13 @@
+<?php include_once('conexionBBDD.php');
+
+error_reporting(E_ALL ^ E_NOTICE);
+session_start();
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuari=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -22,7 +32,9 @@
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
         <a href="login.php">
@@ -88,7 +100,9 @@
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
             </p>
         </div>
 

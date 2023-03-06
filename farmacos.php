@@ -3,6 +3,15 @@ error_reporting(E_ALL ^ E_NOTICE);
 if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
 $idUsuario="2";
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -27,7 +36,9 @@ $idUsuario="2";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
         <a href="login.php">
@@ -51,6 +62,8 @@ $idUsuario="2";
                 </form>
             </div>
         </div>
+        <?php if($rol=="administrador" || $rol=="usuario"){
+        ?>
         <div class="menuBotones">
             <a href="crear_farmaco.php" class="barraBotonesLink">
                 <button class="btnNormal">Crear fàrmac</button>
@@ -59,6 +72,9 @@ $idUsuario="2";
                 <button class="btnNormal">Els meus fàrmacs</button>
             </a>
         </div>
+        <?php
+        }
+        ?>
         <?php
 if ($sele=="0") 
 {	
@@ -74,9 +90,9 @@ if ($sele=="0")
                     <div class='inner-first-body-principal'>
                         <form action='farmac.php'  method='post' name='formu'>
                             <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales' style='border: none;background-color: white; color: black;'/></h1>
-                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                            <input type='hidden' value= '".$row["idFarmaco"] ."' name='idFarmaco'/>
                         </form>
-                            <p>" . $row["descripcion"] . "prueba 2</p>
+                            <p>" . $row["descripcion"] . "</p>
                     </div>
                 </div>";
         }
@@ -166,7 +182,9 @@ else{
                     <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
                     <a href="farmacos.php" title="link a farmacos">Farmacos</a>
                     <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-                    <a href="php/listaUsers.php" title="link a users">Users</a>
+                    <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
                 </p>
             </div>
 

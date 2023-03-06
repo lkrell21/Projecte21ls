@@ -4,6 +4,15 @@ if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
 if (isset($_POST['enviat2'])) $sele2="0";
 else $sele2="1";
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -30,7 +39,9 @@ else $sele2="1";
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
         <a href="login.php">
@@ -88,10 +99,10 @@ else
     $info = pathinfo($imatge);
     $tipoFichero= $info["extension"];
     $nomImatge = "img/proteinas/".$nom.".".$tipoFichero;
-    $idUsuari='2';
+    //$idUsuari='2';
     $descripcio=$_POST["descripcio"];
 
-    $sql= "INSERT into `proteinas`(`nombre`, `resolucion`, `especie`, `fecha`, `tipoFichero`, `imagen`, `metodo`, `descripcion`, `idUsuario`)  Values('".$nom."', '".$resolucio."', '".$especie."','".$fecha."', '".$tipoFichero."', '".$nomImatge."', '".$metode."', '".$descripcio."', '".$idUsuari."')";
+    $sql= "INSERT into `proteinas`(`nombre`, `resolucion`, `especie`, `fecha`, `tipoFichero`, `imagen`, `metodo`, `descripcion`, `idUsuario`)  Values('".$nom."', '".$resolucio."', '".$especie."','".$fecha."', '".$tipoFichero."', '".$nomImatge."', '".$metode."', '".$descripcio."', '".$idUsuario."')";
     $res = move_uploaded_file($_FILES["imatge"]["tmp_name"], $nomImatge);
     $resultado = mysqli_query($conexion, $sql);
 
@@ -119,7 +130,9 @@ if (mysqli_num_rows($resultado2) > 0) {
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
             </p>
         </div>
 

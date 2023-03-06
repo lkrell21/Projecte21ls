@@ -6,6 +6,15 @@ if (isset($_POST['eliminar'])) $sele=$_POST['eliminar'];
 else $sele="0";
 if (isset($_POST['guardar'])) $sele2=$_POST['guardar'];
 else $sele2="0";
+session_start();
+$idUsuario ="";
+$rol="";
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
+$idUsuario=$_SESSION["idUsuario"];
+$rol=$_SESSION["rol"];
+
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
