@@ -61,7 +61,7 @@ $rol=$_SESSION["rol"];
             </div>-->
             <div class="search-body">
             <div id="form-div">
-                <form id="form" action="php/consultaFarmacos.php" method="post">
+                <form id="form" action="farmacos.php" method="post">
                     <input type="text" class="search-form" placeholder="Nom" />
                     <input type="text" class="search-form" placeholder="Codi" />
                     <input type="text" class="search-form" placeholder="SMILES" />
@@ -89,7 +89,7 @@ $rol=$_SESSION["rol"];
                 </div>
             </div>
             <?php if($sele==1){    
-                $idProteina = $_POST["idFarmaco"];
+                $idFarmaco = $_POST["idFarmaco"];
 
                 $sql = "DELETE FROM farmacos WHERE idFarmaco = ".$idFarmaco;  
                 
