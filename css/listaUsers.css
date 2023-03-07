@@ -76,11 +76,37 @@ td{
     padding-left: 3%;
     padding-right: 5%;
     margin-bottom: 10px;
-    display: block;
+    display: flex;
     padding-block:20px;
+    justify-content:center;
     
 }
 #btnEliminarUsuarios {
     display: none;
     background-color: rgb(218, 142, 148);
+}
+.search-form-id{
+    width:10%;
+}
+.search-form-id input {
+    width: 90%;
+    text-align:center;
+}
+.search-form, .search-form-id input {
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+}
+.modificarUsuarios input {
+    padding: 10px 10px;
+    color: #33383b;
+    /*background-color: #7FB3D5;*/
+    border-radius: 15px;
+    border-color: white;
+    cursor: pointer;
+    /*background-color: #D2FFE2;*/
+     border-radius: 10px;
+}
+#eliminar,#modificar{
+    display:none;
 }

@@ -7,7 +7,7 @@ if (isset($_POST['enviar'])) $sele=$_POST['enviar'];
 else $sele="0";
 session_start();
 $idUsuario=$_SESSION["idUsuario"];
-$rol=$_SESSION["rol"];
+$rol=$_SESSION["rol"]; 
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -24,7 +24,7 @@ $rol=$_SESSION["rol"];
     <script type="text/javascript" src="funcions.js"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Consulta usuarios</title>
+    <title>Gestión de usuarios</title>
 </head>
 
 <body>
@@ -75,14 +75,13 @@ $rol=$_SESSION["rol"];
                 </div>
         </div>
         <div class="first-body">
-            <?php
-                if ($sele=="0"){	
-            ?>
-                    <div id="divInputs" style="display:none">
-                    <form action="listaUsers.php" method="post" name="formu"> 
-                        <table>
+            <?php if ($sele=="0"){	 ?>
+                <div id="divInputs" style="display:none">
+                    <?php $sql = "SELECT * FROM usuarios";
+                          $result = mysqli_query($conexion, $sql);?>
+                   
+                        <table id= "modificar">
                             <tr>
-                                <th  class="eliminarUsuarios" style="height:auto; color:#7FB3D5"><?php echo $prueba;?></th>
                                 <th>ID</th>
                                 <th>Nombre</th>
                                 <th>Correo electrónico</th>
@@ -90,15 +89,51 @@ $rol=$_SESSION["rol"];
                                 <th>Activo</th>
                                 <th class="modificarUsuarios" style="height:auto; color:#7FB3D5"><?php echo $prueba;?></th>
                             </tr>
-                                <?php 
-                                $sql = "SELECT * FROM usuarios";
-                                $result = mysqli_query($conexion, $sql);
-                                while ($row = mysqli_fetch_assoc($result)){ 
-                                ?>
+                            <?php while ($row = mysqli_fetch_assoc($result)){ ?>
                                 <tr>
+                                    <form action="listaUsers.php" method="post" name="formu">
+                                        <td>        
+                                            <input type="text" class="search-form-id" value="<?php echo $row['idUsuario']; ?>" name="idUsuario" disabled/>                       
+                                        </td>
+                                        <td>
+                                            <input type="text" class="search-form" value="<?php echo $row['nombre']; ?>" name="nom"/> 
+                                        </td>
+                                        <td>
+                                            <input type="text" class="search-form" value="<?php echo $row['email']; ?>" name="email"/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="search-form" value="<?php echo $row['rol']; ?>" name="rol"/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="search-form" value="<?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>" name="activo"/>
+                                        </td>
+                                        <td class="modificarUsuarios">
+                                            <input class="modificarUsuarios" type="submit" value="Modificar" name="update"/>
+                                        </td>
+                                        <input type="hidden" value="1" name="enviar" id ="enviar">
+                                    </form>
+                                </tr>
+                            <?php }?>  
+                        </table>
+                        <form action="listaUsers.php" method="post" name="formu"> 
+                            <table id= "eliminar">
+                            <tr>
+                                <th  style="height:auto; color:#7FB3D5"><?php echo $prueba;?></th>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Correo electrónico</th>
+                                <th>Rol</th>
+                                <th>Activo</th>             
+                            </tr>
+                            <?php 
+                            $sql = "SELECT * FROM usuarios";
+                            $result = mysqli_query($conexion, $sql);
+                            while ($row = mysqli_fetch_assoc($result)){ ?>
+                                <tr>
+                                
                                     <td class="eliminarUsuarios"><input type="checkbox" value="<?php echo $row['idUsuario']; ?>" name="check[]"/>
-                                    <td>
-                                        <input type="text" class="search-form" value="<?php echo $row['idUsuario']; ?>" name="idUsuario" disabled/>                       
+                                    <td class="search-form-id">
+                                        <input type="text" class="search-form-id" value="<?php echo $row['idUsuario']; ?>" name="idUsuario" disabled/>                       
                                     </td>
                                     <td>
                                         <input type="text" class="search-form" value="<?php echo $row['nombre']; ?>" name="nom"/> 
@@ -111,50 +146,47 @@ $rol=$_SESSION["rol"];
                                     </td>
                                     <td>
                                         <input type="text" class="search-form" value="<?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>" name="activo"/>
-                                    </td>
-                                    <td class="modificarUsuarios">
-                                        <input class="modificarUsuarios" type="submit" value="Modificar" name="modificar"/>
-                                    </td>
+                                    </td> 
                                 </tr>
-                                <input type="hidden" value="0" name="enviar" id ="enviar">
-            <?php } ?>
+                            <?php }?>
+                                <input type="hidden" value="2" name="enviar" id ="enviar">
                         </table>
-                        <input id="btnEliminarUsuarios" type="submit" value="Eliminar" name="modificar" class="btnNormal"/>
+                        <input id="btnEliminarUsuarios" type="submit" value="Eliminar" name="eliminar" class="btnNormal"/>
                     </form>
-                    </div>
-        <div id="divConsultas" style="display:block">
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Correo electrónico</th>
-                    <th>Rol</th>
-                    <th>Activo</th>
-                    <?php $sql = "SELECT * FROM usuarios";
-                    $result = mysqli_query($conexion, $sql);
-                    while ($row = mysqli_fetch_assoc($result)){ 
-                    ?>
+                </div>
+            <div id="divConsultas" style="display:block">
+                <table>
                     <tr>
-                        <td>
-                            <?php echo $row['idUsuario']; ?>                      
-                        </td>
-                        <td>
-                           <?php echo $row['nombre']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['email']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['rol']; ?>
-                        </td>
-                        <td>
-                            <?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>
-                        </td>
-                    </tr>
-                <?php } ?>
-            </table>
-        </form>
-        </div>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo electrónico</th>
+                        <th>Rol</th>
+                        <th>Activo</th>
+                        <?php $sql = "SELECT * FROM usuarios";
+                        $result = mysqli_query($conexion, $sql);
+                        while ($row = mysqli_fetch_assoc($result)){ 
+                        ?>
+                        <tr>
+                            <td>
+                                <?php echo $row['idUsuario']; ?>                      
+                            </td>
+                            <td>
+                                <?php echo $row['nombre']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['email']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['rol']; ?>
+                            </td>
+                            <td>
+                                <?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </table>
+            </form>
+            </div>
         </div>
         <?php } elseif($sele=="2"){
              $agafats = $_POST['check'];
@@ -170,7 +202,9 @@ $rol=$_SESSION["rol"];
                  $eliminats++;
                  //echo "<br>".$sql."<br>";
              }
-             echo "S'han eliminat ".$eliminats . " alumnes";
+             echo "Se han eliminado ".$eliminats . " usuarios";
+             $sele="0";
+             header("Location: listaUsers.php");
          mysqli_close($conexion);
         }
         elseif ($sele=="2"){
@@ -178,7 +212,7 @@ $rol=$_SESSION["rol"];
         }
 ?>
     </div>
-    <div>
+
 
     <footer class="footer">
 

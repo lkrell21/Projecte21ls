@@ -25,10 +25,12 @@ function aceptarEliminarFarmaco(){
     location.href = "farmacos.php";
 }
 function eliminarUsuarios(){
+    document.getElementById("divConsultas").style.display = "none";
+    document.getElementById("divInputs").style.display = "flex";
     document.getElementById("btnEliminarUsuarios").style.display="block";
     document.getElementById("enviar").value = "2";
-    document.getElementById("divInputs").style.display = "flex";
-    document.getElementById("divConsultas").style.display = "none";
+    document.getElementById("modificar").style.display="none";
+    document.getElementById("eliminar").style.display="block";
     var arrayOfElements=document.getElementsByClassName('eliminarUsuarios');
     var lengthOfArray=arrayOfElements.length;
     for (var i=0; i<lengthOfArray;i++){
@@ -43,6 +45,8 @@ function eliminarUsuarios(){
     //document.querySelectorAll("eliminarUsuarios").forEach(a=>a.style.display = "block");
 }
 function modificarUsuarios(){
+    document.getElementById("eliminar").style.display="none";
+    document.getElementById("modificar").style.display="block";
     document.getElementById("btnEliminarUsuarios").style.display="none";
     document.getElementById("enviar").value = "1";
     document.getElementById("divInputs").style.display = "flex";

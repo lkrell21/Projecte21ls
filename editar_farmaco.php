@@ -41,7 +41,9 @@ $rol=$_SESSION["rol"];
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
 
         </nav>
         <a href="login.php">
@@ -117,9 +119,10 @@ $rol=$_SESSION["rol"];
                     //echo "SIN IMAGEN: ".$sql;
 
                 }
+                $resultado=mysqli_query($conexion,$sql);
             }
             //echo $sql;
-                $resultado=mysqli_query($conexion,$sql);
+               
                 $sql="SELECT * from farmacos where idFarmaco='".$idFarmaco."'";
             $resultado=mysqli_query($conexion,$sql);
             //echo $sql;
@@ -161,7 +164,9 @@ $rol=$_SESSION["rol"];
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <?php if($rol=="administrador"){
+            echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
+        }?>
             </p>
         </div>
 
