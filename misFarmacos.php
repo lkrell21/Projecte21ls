@@ -56,12 +56,12 @@ else
     <div id="body">
         <div class="search-body">
             <div id="form-div">
-                <form id="form" action="php/consultaFarmacos.php" method="post">
+                <form id="form" action="misFarmacos.php" method="post">
                     <input type="text" class="search-form" placeholder="Nom" />
                     <input type="text" class="search-form" placeholder="Codi" />
                     <input type="text" class="search-form" placeholder="SMILES" />
                     <input type="text" class="search-form" placeholder="InChl" />
-                    <input type="text" class="search-form" placeholder="Data" />
+                    <input type="date" class="search-form" placeholder="Data" />
                     <input type="text" class="search-form" placeholder="Estat" />
                     <input type="submit" class="search-button" value="Cerca" />
                         <input name="enviat" type="hidden" value="1" />
@@ -114,7 +114,7 @@ else{
     }
     if ($_POST["data"] != null) {
         $fecha = $_POST["data"];
-        $sql = $sql . " AND cast(date,fecha) = '$fecha'";
+        $sql = $sql . " AND convert(fecha,date) = '$fecha'";
     }
     if ($_POST["estado"] != null) {
         $fecha = $_POST["estado"];

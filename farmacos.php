@@ -54,7 +54,7 @@ $rol=$_SESSION["rol"];
                     <input type="text" class="search-form" placeholder="Codi" name="idFarmaco"/>
                     <input type="text" class="search-form" placeholder="SMILES" name="smiles"/>
                     <input type="text" class="search-form" placeholder="InChl" name="inchl"/>
-                    <input type="text" class="search-form" placeholder="Data" name="fecha"/>
+                    <input type="date" class="search-form" placeholder="Data" name="fecha"/>
                     <input type="text" class="search-form" placeholder="Estat" name="estat"/>
                     <input type="submit" class="search-button" value="Cerca" />
                         <input name="enviat" type="hidden" value="1" />
@@ -139,7 +139,7 @@ else{
     }
     if ($_POST["data"] != null) {
         $fecha = $_POST["data"];
-        $sql = $sql . " AND cast(date,fecha) = '$fecha'";
+        $sql = $sql . " AND convert(fecha,date) = '$fecha'";
     }
     if ($_POST["estado"] != null) {
         $fecha = $_POST["estado"];

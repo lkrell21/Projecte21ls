@@ -45,12 +45,12 @@ $rol=$_SESSION["rol"];
             <div class="search-body">
                 <div id="form-div">
                     <form id="form" action="proteinas.php" method="post">
-                        <input type="text" class="search-form" placeholder="Nom" name="nom"/>
-                        <input type="text" class="search-form" placeholder="Resolució" name="resolucio"/>
-                        <input type="text" class="search-form" placeholder="Especie" name="especie"/>
-                        <input type="text" class="search-form" placeholder="Data" name="data" />
-                        <input type="text" class="search-form" placeholder="Metode" name="metode"/>
-                        <input type="text" class="search-form" placeholder="Codi de la proteïna" name="idProteina"/>
+                        <input type="text" class="search-form" placeholder="Nombre" name="nom"/>
+                        <input type="text" class="search-form" placeholder="Resolución" name="resolucio"/>
+                        <input type="text" class="search-form" placeholder="Espécie" name="especie"/>
+                        <input type="date" class="search-form" placeholder="Fecha" name="data" />
+                        <input type="text" class="search-form" placeholder="Metodo" name="metode"/>
+                        <input type="text" class="search-form" placeholder="Codigo de la proteina" name="idProteina"/>
                         <input type="submit" class="search-button" value="Cerca" />
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="reset" class="search-button" />
@@ -110,15 +110,15 @@ else{
     }
     if ($_POST["data"] != null) {
         $fecha = $_POST["data"];
-        $sql = $sql . " AND cast(date,fecha) = '$fecha'";
+        $sql = $sql . " AND convert(fecha,date) = '$fecha'";
     }
     if ($_POST["metode"] != null) {
-        $fecha = $_POST["metode"];
-        $sql = $sql . " AND metode = '$metode'";
+        $metode = $_POST["metode"];
+        $sql = $sql . " AND metodo = '$metode'";
     }
     if ($_POST["idProteina"] != null) {
         $idProteina = $_POST["idProteina"];
-        $sql = $sql . " AND idProteina = '$idProteina'";
+        $sql = $sql ." AND idProteina = '$idProteina'";
     }
     $datos = "";
   
@@ -139,7 +139,7 @@ else{
         }
         echo $datos;
     } else
-        echo "No hay datos con ese filtro"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+        echo "No hay datos con ese filtro "; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
 }
 ?>
     <footer class="footer">
