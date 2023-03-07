@@ -1,5 +1,5 @@
 <?php include_once('conexionBBDD.php');?>
-<html><head> <title>INDEX</title></head>
+<html><head> <title>Consulta Farmacos</title></head>
 <body> <!--<h1>Consultar</h1>-->
 <?php
 //coger usuario y contraseña del formulario del login

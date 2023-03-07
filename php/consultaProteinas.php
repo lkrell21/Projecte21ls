@@ -23,7 +23,7 @@
             <a href="../estadisticas.php" title="link a estadisticas">Estadísticas</a>
             <a href="../farmacos.php" title="link a farmacos">Fármacos</a>
             <a href="../proteinas.php" title="link a proteinas">Proteínas</a>
-            <a href="listaUsers.php" title="link a users">Users</a>
+            <a href="listaUsers.php" title="link a users">Usuarios</a>
         </nav>
         <a href="../login.php">
             <button type="submit">Login</button>

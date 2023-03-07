@@ -71,7 +71,7 @@ else
         </div>
         <div class="menuBotones">
             <a href="crear_farmaco.php" class="barraBotonesLink">
-                <button class="btnNormal">Crear fàrmac</button>
+                <button class="btnNormal">Crear fármaco</button>
             </a>
         </div>
         <?php

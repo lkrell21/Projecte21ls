@@ -66,10 +66,10 @@ $rol=$_SESSION["rol"];
         ?>
         <div class="menuBotones">
             <a href="crear_farmaco.php" class="barraBotonesLink">
-                <button class="btnNormal">Crear fàrmac</button>
+                <button class="btnNormal">Crear fármaco</button>
             </a>
             <a href="misFarmacos.php" class="barraBotonesLink">
-                <button class="btnNormal">Els meus fàrmacs</button>
+                <button class="btnNormal">Mis fármacos</button>
             </a>
         </div>
         <?php

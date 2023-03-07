@@ -6,7 +6,7 @@
     <meta http-equiv= "content-type" content="text/html;charset=es">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="login de la pagina">
-    <meta name="keywords" content="login, registrarse, register, email, username, password">
+    <meta name="keywords" content="login, registrarse, register, email, Nombre de usuario, contraseña">
     <meta name="description" content="en esta pagina veremos el login y el resgister de la pagina">
     <link rel="stylesheet" href="css/login.css">
     <title>Login de la pagina</title>
@@ -20,41 +20,41 @@
                 <form action="php/login.php" method="post">
                     <div class="sign-in-htm">
                         <div class="group">
-                            <label for="user" class="label">Username</label>
+                            <label for="user" class="label">Nombre de usuario</label>
                             <input name="usuario" id="user" type="text" class="input" required>
                         </div>
                         <div class="group">
-                            <label for="pass" class="label">Password</label>
+                            <label for="pass" class="label">Contraseña</label>
                             <input id="pass" name="contrasenya" type="password" class="input" data-type="password" required>
                         </div>
                         <div class="group">
-                            <input type="checkbox" checked="checked" name="remember"> Remember me
+                            <input type="checkbox" checked="checked" name="remember"> Recordar usuario
                         </div>
                         <div class="group">
                             <input type="submit" class="button" value="Sign In">
                         </div>
                         <div class="hr"></div>
                         <div class="foot-lnk">
-                            <a href="#">Forgot Password?</a>
+                            <a href="#">Olvidaste la contraseña?</a>
                         </div>
                         <a href="home.php" class="previous round" title="link al home">‹</a>
                     </div>
                 </form>
                 <div class="sign-up-htm">
                     <div class="group">
-                        <label for="user" class="label">Username</label>
+                        <label for="user" class="label">Nombre de usuario</label>
                         <input id="user" type="text" class="input">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Password</label>
+                        <label for="pass" class="label">Contraseña</label>
                         <input id="pass" type="password" class="input" data-type="password">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Repeat Password</label>
+                        <label for="pass" class="label">Repetir contraseña</label>
                         <input id="pass" type="password" class="input" data-type="password">
                     </div>
                     <div class="group">
-                        <label for="pass" class="label">Email Address</label>
+                        <label for="pass" class="label">Correo electronico</label>
                         <input id="pass" type="text" class="input">
                     </div>
                     <a href="login.php" class="google-plus">
@@ -66,7 +66,7 @@
                     </div>
                     <div class="hr"></div>
                     </a><div class="foot-lnk"><a href="login.php" class="google-plus">
-                        <label for="tab-1">Already Member?</label></a>
+                        <label for="tab-1">Ya eres un miembro?</label></a>
                     </div>
                     <a href="home.php" class="previous round" title="link al home">‹</a>
                 </div>

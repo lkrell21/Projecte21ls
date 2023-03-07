@@ -57,10 +57,10 @@ if ($sele=="0")
             <div id="divEliminar">
                 <div id="eliminarBody">
                     <div id="eliminar-div">
-                        <h2 id="confirmacionEliminacion">Segur que vol eliminar?</h2>
+                        <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
                         <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
                         <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                        <button id="aceptar" class="btnNormal"  onclick="cancelarEliminar()">Acceptar</button>
+                        <button id="aceptar" class="btnNormal"  onclick="cancelarEliminar()">Aceptar</button>
                     </div>
                 </div>
             </div>

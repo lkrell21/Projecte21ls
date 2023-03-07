@@ -69,7 +69,7 @@ else
             </div>
             <div class="menuBotones">
                 <a href="crear_proteina.php" class="barraBotonesLink">
-                    <button class="btnNormal">Crear proteïna</button>
+                    <button class="btnNormal">Crear proteina</button>
                 </a>
             </div>
             

@@ -54,7 +54,7 @@ $rol=$_SESSION["rol"];
                         <h2 id="confirmacionEliminacion">Seguro que quiere eliminar?</h2>
                             <button class="buttonEspecial" id="eliminar2" onclick="confirmarEliminar()">Eliminar</button>
                             <button class="buttonEspecial" id="cancelar" onclick="cancelarEliminar()">Cancelar</button>
-                            <button id="aceptar" class="btnNormal" onclick="cancelarEliminar()">Acceptar</button>
+                            <button id="aceptar" class="btnNormal" onclick="cancelarEliminar()">Aceptar</button>
                         
                     </div>
                 </div>
@@ -107,7 +107,7 @@ $rol=$_SESSION["rol"];
                 <div id="eliminarBody">
                     <div id="eliminar-div">
                         <h2 >Se ha eliminado correctamente</h2>
-                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarFarmaco()">Acceptar</button>
+                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarFarmaco()">Aceptar</button>
                         
                     </div>
                 </div>
@@ -130,12 +130,12 @@ $rol=$_SESSION["rol"];
                     
                     <h1 style="text-transform: uppercase;font-weight:bold;"><?php echo $row["nombre"];?></h1>
                     <ul >
-                        <li><b>Nom</b>: <?php echo $row["nombre"];?></li>
-                        <li><b>Codi</b>: <?php echo $row["idFarmaco"];?></li>
+                        <li><b>Nombre</b>: <?php echo $row["nombre"];?></li>
+                        <li><b>Código</b>: <?php echo $row["idFarmaco"];?></li>
                         <li><b>SMILES</b>: <?php echo $row["SMILES"];?></li>
                         <li><b>InChl</b>: <?php echo $row["InChl"];?></li>
-                        <li><b>Data</b>: <?php echo $row["fecha"];?></li>
-                        <li><b>Estat</b>: <?php echo $row["estado"];?></li>
+                        <li><b>Fecha</b>: <?php echo $row["fecha"];?></li>
+                        <li><b>Estado</b>: <?php echo $row["estado"];?></li>
                     </ul>
                 </div>
                 <div style="width:30%; display:flex; flex-wrap:wrap">

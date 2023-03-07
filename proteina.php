@@ -101,7 +101,7 @@ $rol=$_SESSION["rol"];
                                 <div id="eliminarBody">
                                     <div id="eliminar-div">
                                         <h2 >Se ha eliminado correctamente</h2>
-                                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarProteina()">Acceptar</button>
+                                            <button id="aceptar" class="btnNormal" onclick="aceptarEliminarProteina()">Aceptar</button>
                                         
                                     </div>
                                 </div>
