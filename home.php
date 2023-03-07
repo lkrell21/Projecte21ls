@@ -8,7 +8,8 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
-$btnLog = "<a href='logout.php'>
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
 <button id='btnLogin'>Logout</button>
 </a>";
 }
@@ -45,10 +46,7 @@ else
         <a href="proteinas.php" title="link a proteinas">Proteinas</a>
         <?php if($rol=="administrador"){
             echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
-        }?>
-        
-        
-        
+        }?>    
     </nav>
     <?php
     echo $btnLog;

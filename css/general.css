@@ -69,6 +69,7 @@ nav a:hover {
     color: black;
     padding: 15px 15px;
     margin-top: -45px;
+    margin-right:10px;
     line-height: 1;
     float: right;
     background-color: #7FB3D5;
@@ -261,6 +262,7 @@ nav a:hover {
     background-color: #7FB3D5;
     /* background-color: #D2FFE2;*/
     border-radius: 10px;
+    text-transform:capitalize;
 
   }
   .btnNormal:hover{
@@ -285,6 +287,21 @@ nav a:hover {
     margin-bottom: 0px;
     display:inline-block;
   }
+#divUsuario {
+    color: black;
+    padding: 2%;
+    margin-top: -190px;
+    line-height: 0;
+    float: right;
+    background-color: #7FB3D5;
+    /* background-color: #D2FFE2; */
+    border-radius: 200px;
+    border-color: #B3B6B7;
+    margin-right:6px;
+}
+    #divUsuario p {
+        font-size: 12px;
+    }
   /* If you don't want the footer to be responsive, remove these media queries */
   
   @media (max-width: 880px) {
@@ -307,4 +324,5 @@ nav a:hover {
     }
   
   }
+
   

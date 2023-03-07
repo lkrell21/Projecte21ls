@@ -6,8 +6,18 @@ else $sele="0";
 session_start();
 if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
-$idUsuari=$_SESSION["idUsuario"];
+$idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
 }
 ?>
 <!DOCTYPE html>
@@ -37,9 +47,9 @@ $rol=$_SESSION["rol"];
             echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
         }?>
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
         </header>
         <div id="body">
             <div class="search-body">
@@ -61,10 +71,10 @@ $rol=$_SESSION["rol"];
               echo '<div class="menuBotones">
             
               <a href="crear_proteina.php" class="barraBotonesLink">
-                    <button class="btnNormal">Crear proteïna</button>
+                    <button class="btnNormal">Crear proteina</button>
                 </a>
                 <a href="misProteinas.php" class="barraBotonesLink">
-                    <button class="btnNormal">Les meves proteïnes</button>
+                    <button class="btnNormal">Mis proteinas</button>
                 </a>
             </div>';
              }?>
@@ -91,7 +101,7 @@ if ($sele=="0")
         }
         echo $datos;
     } else
-        echo "Ups... Se ha producido un error al cargar los datos!"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+        echo "<div class='first-body-principal'><p>Ups... Se ha producido un error al cargar los datos! Vuelve a intentarlo</p></div>";// <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
 }
 
 else{

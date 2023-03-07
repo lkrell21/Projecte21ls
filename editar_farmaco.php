@@ -13,7 +13,16 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
-
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
 }
 ?>
 <!DOCTYPE html>
@@ -43,12 +52,12 @@ $rol=$_SESSION["rol"];
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
             <?php if($rol=="administrador"){
             echo '<a href="listaUsers.php" title="link a users">Usuarios</a>';
-        }?>
+            }?>
 
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
         </header>
 
         <div id="body">

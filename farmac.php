@@ -11,6 +11,16 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
 }
 ?>
 <!DOCTYPE html>
@@ -42,9 +52,9 @@ $rol=$_SESSION["rol"];
         }?>
 
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
         </header>
 
         <div id="body">
@@ -61,16 +71,16 @@ $rol=$_SESSION["rol"];
             </div>-->
             <div class="search-body">
             <div id="form-div">
-                <form id="form" action="farmacos.php" method="post">
-                    <input type="text" class="search-form" placeholder="Nom" />
-                    <input type="text" class="search-form" placeholder="Codi" />
-                    <input type="text" class="search-form" placeholder="SMILES" />
-                    <input type="text" class="search-form" placeholder="InChl" />
-                    <input type="text" class="search-form" placeholder="Data" />
-                    <input type="text" class="search-form" placeholder="Estat" />
+            <form id="form" action="farmacos.php" method="post">
+                    <input type="text" class="search-form" placeholder="Nom" name="nom"/>
+                    <input type="text" class="search-form" placeholder="Codi" name="idFarmaco"/>
+                    <input type="text" class="search-form" placeholder="SMILES" name="smiles"/>
+                    <input type="text" class="search-form" placeholder="InChl" name="inchl"/>
+                    <input type="date" class="search-form" placeholder="Data" name="fecha"/>
+                    <input type="text" class="search-form" placeholder="Estat" name="estat"/>
                     <input type="submit" class="search-button" value="Cerca" />
-                    <input name="enviat" type="hidden" value="1" />
-                    <input name="Enviar" type="reset" value="Reset" class="search-button" />
+                        <input name="enviat" type="hidden" value="1" />
+                        <input name="Enviar" type="reset" value="Reset" class="search-button" />
                 </form>
             </div>
         </div>
@@ -139,12 +149,15 @@ $rol=$_SESSION["rol"];
                     </ul>
                 </div>
                 <div style="width:30%; display:flex; flex-wrap:wrap">
+                <?php if($rol=="administrador" || $row["idUsuario"]==$idUsuario){ 
+                    ?>
                 <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>                                     
                 <form id="form" action="editar_farmaco.php" method="post" style="margin-top:0;margin-right:0" > 
                     <input type="submit" value="Editar" class="button" id="editar"></input>
                     <input type="hidden" value="<?php echo $row["idFarmaco"];?>" name="idFarmaco"></input>
                     <input type="hidden" value="<?php echo $row["nombre"];?>" name="nombre2"></input>
-                    </form>
+                </form>
+                <?php }?>
                 </div>
             </div>
                         

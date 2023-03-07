@@ -1,14 +1,15 @@
 table {
     margin-top: 10px;
+    border: 1px solid black;
     width: 100%;
     border-collapse: collapse;
-
 }
 
 th, td {
     border: 1px solid black;
     padding: 8px;
     text-align: left;
+    border-collapse: collapse;
 }
 
 th {
@@ -18,12 +19,7 @@ th {
 td{
     background-color: #c5e8ff;
 }
-#eliminar {
-    background-color: rgb(218, 142, 148);
-    border-radius: 5px;
-    border: solid 1px black;
-    cursor: pointer;
-}
+
 
 #divEliminar {
     position: absolute;
@@ -42,12 +38,7 @@ td{
     width: 100%;
     margin: 0;
 }
-.eliminarUsuarios{
-    display:none;
-}
-.modificarUsuarios {
-    display: none;
-}
+
 .btnModificarUsuarios {
     padding: 15px 15px;
     color: #33383b;
@@ -77,8 +68,10 @@ td{
     padding-right: 5%;
     margin-bottom: 10px;
     display: flex;
+    flex-wrap:wrap;
     padding-block:20px;
     justify-content:center;
+    text-align:center;
     
 }
 #btnEliminarUsuarios {

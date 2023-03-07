@@ -10,7 +10,16 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
-
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
 }
 ?>
 <!DOCTYPE html>
@@ -41,9 +50,9 @@ $rol=$_SESSION["rol"];
         }?>
 
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
         </header>
 
     <div id="body">
@@ -98,7 +107,8 @@ if ($sele=="0")
         }
         echo $datos;
     } else
-        echo "Ups... Se ha producido un error al cargar los datos!"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+    echo "<div class='first-body-principal'><p>Ups... Se ha producido un error al cargar los datos! Vuelve a intentarlo</p></div>";
+        // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
 }
     /*$sql = "SELECT * FROM farmacos";
     $resultado = mysqli_query($conexion, $sql);
@@ -160,7 +170,7 @@ else{
                     <div class='inner-first-body-principal'>
                         <form action='farmac.php'  method='post' name='formu'>
                             <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales' style='border: none;background-color: white; color: black;'/></h1>
-                            <input type='hidden' value= '".$row["idProteina"] ."' name='idProteina'/>
+                            <input type='hidden' value= '".$row["idFarmaco"] ."' name='idFarmaco'/>
                         </form>
                             <p>" . $row["descripcion"] . "prueba 2</p>
                     </div>
@@ -169,7 +179,7 @@ else{
         }
         echo $datos;
     } else
-        echo "No hay datos con ese filtro"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+    echo "<div class='first-body-principal'><p>No hay datos con ese filtro</p></div>"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
 }
 ?>
        

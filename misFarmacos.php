@@ -9,7 +9,8 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
-$btnLog = "<a href='logout.php'>
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
 <button id='btnLogin'>Logout</button>
 </a>";
 }
@@ -48,21 +49,21 @@ else
             }?>
 
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
         </header>
 
     <div id="body">
         <div class="search-body">
             <div id="form-div">
                 <form id="form" action="misFarmacos.php" method="post">
-                    <input type="text" class="search-form" placeholder="Nom" />
-                    <input type="text" class="search-form" placeholder="Codi" />
-                    <input type="text" class="search-form" placeholder="SMILES" />
-                    <input type="text" class="search-form" placeholder="InChl" />
-                    <input type="date" class="search-form" placeholder="Data" />
-                    <input type="text" class="search-form" placeholder="Estat" />
+                <input type="text" class="search-form" placeholder="Nom" name="nom"/>
+                    <input type="text" class="search-form" placeholder="Codi" name="idFarmaco"/>
+                    <input type="text" class="search-form" placeholder="SMILES" name="smiles"/>
+                    <input type="text" class="search-form" placeholder="InChl" name="inchl"/>
+                    <input type="date" class="search-form" placeholder="Data" name="fecha"/>
+                    <input type="text" class="search-form" placeholder="Estat" name="estat"/>
                     <input type="submit" class="search-button" value="Cerca" />
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="Reset" class="search-button" />
@@ -78,19 +79,22 @@ else
 if ($sele=="0") 
 {	
     $sql = "SELECT * FROM farmacos where idUsuario='".$idUsuario."'";
+    
+    //$sql = "SELECT * FROM farmacos ";
+    $datos = "";
+    
     $resultado = mysqli_query($conexion, $sql);
-    if(mysqli_fetch_assoc($resultado)>0){
+    if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datos = $datos .
-                "<div class='first-body-principal'>
+                "<div class='first-body'>
                     <img class='body-images' src='" . $row["imagen"] . "'/>
                     <div class='inner-first-body-principal'>
                         <form action='farmac.php'  method='post' name='formu'>
-                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales'/ style='border: none;background-color: white; color: black;'></h1>
+                            <h1><input type='submit' value= '".$row["nombre"] ."' name='nombre' class='titulosIndividuales' style='border: none;background-color: white; color: black;'/></h1>
                             <input type='hidden' value= '".$row["idFarmaco"] ."' name='idFarmaco'/>
-                            <input type='hidden' value= '".$row["nombre"] ."' name='nombre2'/>
                         </form>
-                        <p>" . $row["descripcion"] . "</p>
+                            <p>" . $row["descripcion"] . "</p>
                     </div>
                 </div>";
         }
@@ -99,7 +103,7 @@ if ($sele=="0")
     echo "<div class='first-body-principal'><p>Se ha producido un error al cargar los datos... O no tienes farmacos creados?</p></div>"; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
 }
 else{
-    $sql = "SELECT * FROM farmacos where idUsuario in(select idUsuario from farmacos)";
+    $sql = "SELECT * FROM farmacos where idUsuario = '$idUsuario'";
     if ($_POST["nom"] != null) {
         $nom = $_POST["nom"];
         $sql = $sql . " AND nombre = '$nom'";
@@ -125,7 +129,7 @@ else{
         $sql = $sql . " AND idFarmaco = '$idFarmaco'";
     }
     $datos = "";
-    
+    //echo $sql;
     $resultado = mysqli_query($conexion, $sql);
     if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
@@ -144,7 +148,7 @@ else{
         }
         echo $datos;
     } else
-        echo "No hay datos con ese filtro"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
+    echo "<div class='first-body-principal'><p>No hay datos con ese filtro en tus fármacos...</p></div>"; // <!--<a href='proteina.php'>" .$row["nombre"] . "</a></h1>-->
 }
 ?>
        

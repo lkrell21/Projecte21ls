@@ -11,7 +11,16 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
-
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
 }
 ?>
 <!DOCTYPE html>
@@ -46,9 +55,9 @@ $rol=$_SESSION["rol"];
         }?>
 
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
         </header>
 
         <div id="body">
@@ -133,6 +142,8 @@ $rol=$_SESSION["rol"];
                     </ul>
                 </div>
                 <div style="width:30%; display:flex; flex-wrap:wrap">
+                <?php if($rol=="administrador" || $row["idUsuario"]==$idUsuario){ 
+                    ?>
                     <button class="button" id="eliminar" onclick="eliminar()">Eliminar</button>
                     <form id="form" action="editar_proteina.php" method="post" style="margin-top:0;margin-right:0" enctype="multipart/form-data">                                                       
                             <input type="submit" value="Editar" class="button" id="editar" name="enviar" ></input>
@@ -140,6 +151,7 @@ $rol=$_SESSION["rol"];
                             <input type="hidden" value="<?php echo $row["idProteina"];?>" name="idProteina"></input>
                             <input type="hidden" value="<?php echo $row["nombre"];?>" name="nombre2"></input>
                     </form>
+                    <?php }?>
                 </div>
             </div>            
         </div>

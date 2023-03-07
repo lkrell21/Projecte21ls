@@ -3,11 +3,25 @@ error_reporting(E_ALL ^ E_NOTICE);
 $nom=ucfirst($_POST["nombre"]);   
 $idProteina=$_POST["idProteina"];
 $prueba="A";
+$errorCrear ="";
 if (isset($_POST['enviar'])) $sele=$_POST['enviar'];
 else $sele="0";
 session_start();
+if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
+{
 $idUsuario=$_SESSION["idUsuario"];
-$rol=$_SESSION["rol"]; 
+$rol=$_SESSION["rol"];
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,15 +54,15 @@ $rol=$_SESSION["rol"];
             }?>
 
         </nav>
-        <a href="../login.php">
-            <button id="btnLogin">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
     </header>
 
     <div id="body">
         <div class="menuBotones">
-            <a href="crear_usuario.php" class="barraBotonesLink" >
-                <button class="btnNormal">Crear usuario</button>
+            <a class="barraBotonesLink">
+                <button class="btnNormal" onclick="crearUsuario()">Crear usuario</button>
             </a>
             <a class="barraBotonesLink">
                 <button class="btnNormal" onclick="modificarUsuarios()">Modificar usuarios</button>
@@ -75,11 +89,12 @@ $rol=$_SESSION["rol"];
                 </div>
         </div>
         <div class="first-body">
+        <h2 id="titulo" style="display:block;width:100%;">Listado de usuarios</h2>
             <?php if ($sele=="0"){	 ?>
                 <div id="divInputs" style="display:none">
                     <?php $sql = "SELECT * FROM usuarios";
                           $result = mysqli_query($conexion, $sql);?>
-                   
+                        
                         <table id= "modificar">
                             <tr>
                                 <th>ID</th>
@@ -92,8 +107,8 @@ $rol=$_SESSION["rol"];
                             <?php while ($row = mysqli_fetch_assoc($result)){ ?>
                                 <tr>
                                     <form action="listaUsers.php" method="post" name="formu">
-                                        <td>        
-                                            <input type="text" class="search-form-id" value="<?php echo $row['idUsuario']; ?>" name="idUsuario" disabled/>                       
+                                        <td class="search-form-id">        
+                                        <input type="text" class="search-form" value="<?php echo $row['idUsuario']; ?>" name="fakeidUser" disabled/>           
                                         </td>
                                         <td>
                                             <input type="text" class="search-form" value="<?php echo $row['nombre']; ?>" name="nom"/> 
@@ -108,15 +123,16 @@ $rol=$_SESSION["rol"];
                                             <input type="text" class="search-form" value="<?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>" name="activo"/>
                                         </td>
                                         <td class="modificarUsuarios">
-                                            <input class="modificarUsuarios" type="submit" value="Modificar" name="update"/>
+                                            <input class="modificarUsuarios" type="submit" value="Modificar" name="modificar"/>
                                         </td>
                                         <input type="hidden" value="1" name="enviar" id ="enviar">
+                                        <input type="hidden" value="<?php echo $row['idUsuario']; ?>" name="idUser" id ="enviar">
                                     </form>
                                 </tr>
                             <?php }?>  
                         </table>
                         <form action="listaUsers.php" method="post" name="formu"> 
-                            <table id= "eliminar">
+                            <table id="eliminar">
                             <tr>
                                 <th  style="height:auto; color:#7FB3D5"><?php echo $prueba;?></th>
                                 <th>ID</th>
@@ -136,16 +152,16 @@ $rol=$_SESSION["rol"];
                                         <input type="text" class="search-form-id" value="<?php echo $row['idUsuario']; ?>" name="idUsuario" disabled/>                       
                                     </td>
                                     <td>
-                                        <input type="text" class="search-form" value="<?php echo $row['nombre']; ?>" name="nom"/> 
+                                        <?php echo $row['nombre']; ?>
                                     </td>
                                     <td>
-                                        <input type="text" class="search-form" value="<?php echo $row['email']; ?>" name="email"/>
+                                        <?php echo $row['email']; ?>
                                     </td>
                                     <td>
-                                        <input type="text" class="search-form" value="<?php echo $row['rol']; ?>" name="rol"/>
+                                        <?php echo $row['rol']; ?>
                                     </td>
                                     <td>
-                                        <input type="text" class="search-form" value="<?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>" name="activo"/>
+                                        <?php if( $row['activo']==0){echo "Inactivo";} else {echo "Activo";} ?>
                                     </td> 
                                 </tr>
                             <?php }?>
@@ -187,8 +203,61 @@ $rol=$_SESSION["rol"];
                 </table>
             </form>
             </div>
+            <div id="divCrearUsuario" style="display:none">
+            <form action="listaUsers.php" method="post" name="formu">
+            <table id= "crear">
+                            <tr>
+                                <th>Nombre Usuario</th>
+                                <th>Correo electrónico</th>
+                                <th>Contraseña</th>
+                                <!--<th>Repite la contrasenya</th>-->
+                                <th>Rol</th>
+                            </tr>
+                                <tr>
+                                        <td >        
+                                        <input type="text" class="search-form" placeholder="Nombre" name="nom" required/>           
+                                        </td>
+                                        <td>
+                                            <input type="text" class="search-form" placeholder="Email" name="email"required/>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="search-form" placeholder="Contraseña" name="contrasenya" required/> 
+                                        </td>
+                                       <!--<td>
+                                            <input type="text" class="search-form"  placeholder="Repite la contrasenya" name="contrasenya2" required/> 
+                                        </td>-->
+                                        <td>
+                                            <input type="text" class="search-form" placeholder="Rol" name="rol"required/>
+                                        </td>
+                                        
+                                </tr>
+                        </table>
+                        <input type="hidden" value="3" name="enviar" id ="enviar">
+                        <input class="btnNormal" type="submit" value="Crear" name="crear"/>
+                        <input class="btnNormal" type="reset" value="reset" name="reset"/>
+                        <?php echo $errorCrear;?>
+            </form>
+            </div>
         </div>
-        <?php } elseif($sele=="2"){
+
+        <?php } 
+        elseif ($sele=="1"){
+            $idUsuario=$_POST["idUser"];
+            $nom=$_POST["nom"];
+            $email=$_POST["email"];
+            $rol=$_POST["rol"];
+            if($_POST["activo"]=="Activo"){$activo= 1;}elseif($_POST["activo"]=="Inactivo"){$activo= 0;} ;//else{$activo= null};
+            $sql="UPDATE usuarios set nombre='$nom', email='$email', rol='$rol', activo='$activo' where idUsuario ='$idUsuario'";
+            $resultado = mysqli_query($conexion, $sql);
+            echo '<script type="text/javascript">'; 
+                echo 'alert("Se han modificado correctamente el usuario!");'; 
+                echo 'window.location = "listaUsers.php";';
+                echo '</script>';
+            //$sele="0";
+            //echo $sql;
+            //header("Location: listaUsers.php");
+        }
+        elseif($sele=="2"){
              $agafats = $_POST['check'];
              $eliminats = 0;
              for ($i = 0; $i < count($agafats); $i++){
@@ -204,12 +273,52 @@ $rol=$_SESSION["rol"];
              }
              echo "Se han eliminado ".$eliminats . " usuarios";
              $sele="0";
-             header("Location: listaUsers.php");
+             echo '<script type="text/javascript">'; 
+                echo 'alert("Se han eliminado '.$eliminats.' usuarios!");'; 
+                echo 'window.location = "listaUsers.php";';
+                echo '</script>';
+             //header("Location: listaUsers.php");
          mysqli_close($conexion);
         }
-        elseif ($sele=="2"){
-            //CODIGO PARA MODIFICAR USUARIOS
+        elseif ($sele=="3"){
+            $nom=$_POST["nom"];
+            $email=$_POST["email"];
+            $sql="SELECT * FROM usuarios where nombre like ('%$nom%')";
+            $resultado = mysqli_query($conexion, $sql);
+            $sql2="SELECT * FROM usuarios where email like ('%$email%')";
+            $resultado2 = mysqli_query($conexion, $sql2);
+            //$sele="0";
+            if(mysqli_fetch_assoc($resultado)>0){
+                
+                echo '<script type="text/javascript">'; 
+
+                echo 'alert("Ya existe un usuario con este nombre de usuario! Prueba con otro nombre '.$sql.'");'; 
+                echo 'window.location = "listaUsers.php";';
+                echo 'crearUsuario();</script>';
+                //$errorCrear = "<p>Ya existe un usuario con ese nombre! Prueba con otro nombre de usuario.</p>";
+                //$sele="0";
+                //header("Location: listaUsers.php");
+            }elseif(mysqli_fetch_assoc($resultado2)>0){
+                echo '<script type="text/javascript">'; 
+                echo 'alert("Ya existe un usuario con este email! Introduce otro email diferente.");'; 
+                echo 'window.location = "listaUsers.php";';
+                echo 'crearUsuario();</script>';
+            }else{
+                $nom=$_POST["nom"];
+                $email=$_POST["email"];
+                $contrasenya=$_POST["contrasenya"];
+                $rol=$_POST["rol"];
+                $fecha=date("Y-m-d.H:i:s");
+                $sql="INSERT INTO `usuarios`(`nombre`, `contrasenya`, `email`, `rol`, `fechaAlta`, `activo`) VALUES ('$nom','$contrasenya','$email','$rol','$fecha','1')";
+                $resultado = mysqli_query($conexion, $sql);
+                //$sele="0";
+                $errorCrear ="";
+                echo $sql;
+                header("Location: listaUsers.php");
+            }
+            
         }
+       
 ?>
     </div>
 

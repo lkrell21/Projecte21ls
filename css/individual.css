@@ -115,6 +115,7 @@ input[type=text], input[type=date] {
     margin-left: 5%;
     color: black;
    border: solid 1px black;
+   border-radius:5px;
 }
 #eliminar {
     background-color: rgb(218, 142, 148);

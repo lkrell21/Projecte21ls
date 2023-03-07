@@ -9,7 +9,8 @@ if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
-$btnLog = "<a href='logout.php'>
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
 <button id='btnLogin'>Logout</button>
 </a>";
 }
@@ -97,7 +98,7 @@ if ($sele=="0")
         }
         echo $datos;
     } else{
-        echo "<div class='first-body-principal'><p>Se ha producido un error al cargar los datos...</p></div>"; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
+        echo "<div class='first-body-principal'><p>Ups... Se ha producido un error al cargar los datos! O no tienes proteinas creadas...?</p></div>"; // <h1><a href='proteina.php'>" . $row["nombre"] . "</a></h1>
     }
 }
 else{
@@ -144,7 +145,7 @@ else{
         }
         echo $datos;
     } else
-        echo "<div class='first-body-principal'><p>No hay datos con ese filtro</p></div>";
+        echo "<div class='first-body-principal'><p>No hay datos con ese filtro en tus proteinas... </p></div>";
 }
 ?>
     <footer class="footer">

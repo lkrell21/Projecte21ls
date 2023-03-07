@@ -4,8 +4,18 @@ error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
-$idUsuari=$_SESSION["idUsuario"];
+$idUsuario=$_SESSION["idUsuario"];
 $rol=$_SESSION["rol"];
+$usuario=$_SESSION["usuario"];
+$btnLog = "<div id='divUsuario'><p>".$usuario."</p></div><a href='logout.php'>
+<button id='btnLogin'>Logout</button>
+</a>";
+}
+else 
+{
+    $btnLog = '<a href="login.php">
+    <button id="btnLogin" title="Login">Login</button>
+    </a>';
 }
 ?>
 <!DOCTYPE html>
@@ -37,9 +47,9 @@ $rol=$_SESSION["rol"];
         }?>
 
         </nav>
-        <a href="login.php">
-        <button id="btnLogin" title="link al login">Login</button>
-        </a>
+        <?php
+        echo $btnLog;
+        ?>
         </header>
         
         <div id="body">

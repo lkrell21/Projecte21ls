@@ -10,7 +10,7 @@
     if(isset($_POST['usuario']) && isset($_POST['contrasenya'])){
         $usuario = $_POST["usuario"]; //  'jacinto';
         $contrasenya = $_POST["contrasenya"]; //  '1234';
-        $sql = "SELECT * FROM usuarios where nombre = '$usuario' AND contrasenya = '$contrasenya'";
+        $sql = "SELECT * FROM usuarios where nombre = '$usuario' AND contrasenya = '$contrasenya' AND activo=1";
         $resultado = mysqli_query($conexion, $sql);
         $consulta = mysqli_fetch_assoc($resultado);
         if(mysqli_num_rows($resultado) > 0 ){
@@ -27,8 +27,8 @@
             header('Location: ../home.php');
         }else{
                 
-            echo "incorrecte";
-           // header("Location: index.php");
+            echo "Login incorrecte<br><a href='../login.php'>Torna a intentar-ho</a>";
+           // header("Location: ");
         }
 
     }
