@@ -59,12 +59,12 @@ else
         <div class="search-body">
             <div id="form-div">
                 <form id="form" action="farmacos.php" method="post">
-                    <input type="text" class="search-form" placeholder="Nom" name="nom"/>
-                    <input type="text" class="search-form" placeholder="Codi" name="idFarmaco"/>
+                    <input type="text" class="search-form" placeholder="Nombre" name="nom"/>
+                    <input type="text" class="search-form" placeholder="Codigo" name="idFarmaco"/>
                     <input type="text" class="search-form" placeholder="SMILES" name="smiles"/>
                     <input type="text" class="search-form" placeholder="InChl" name="inchl"/>
-                    <input type="date" class="search-form" placeholder="Data" name="fecha"/>
-                    <input type="text" class="search-form" placeholder="Estat" name="estat"/>
+                    <input type="date" class="search-form" placeholder="Fecha" name="fecha"/>
+                    <input type="text" class="search-form" placeholder="Estado" name="estat"/>
                     <input type="submit" class="search-button" value="Cerca" />
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="Reset" class="search-button" />

@@ -32,7 +32,7 @@ else
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="title" content="Pagina de la lista de ususarios">
     <meta name="keywords" content="usuarios, users, lista, id, username, email">
-    <meta name="description" content="en esta pagina saldra la lista de usuarios, donde podras ver su nombre, su id y su email">
+    <meta name="description" content="En esta pagina saldra la lista de usuarios, donde podras ver su nombre, su id y su email">
     <link rel="stylesheet" href="css/listaUsers.css">
     <link rel="stylesheet" href="css/general.css">
     <script type="text/javascript" src="funcions.js"></script>

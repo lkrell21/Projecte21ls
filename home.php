@@ -55,31 +55,31 @@ else
     
     <div id="body">
         <div class="first-body">
-            <img class="left-images" src="img/example.jpg" alt="imagen noticia 1"/>
+            <img class="left-images" src="img/noticias/noticia1.jpg" alt="imagen noticia 1"/>
             <div class="inner_first-body-left">
-                <h2>Lorem ipsum</h2>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                <h2>Científicos españoles resucitan proteínas de hace millones de años y las usan para corregir el albinismo en células humanas</h2>
+                <p>Científicos de todo el mundo buscan microbios en los hielos de la Antártida, en las fosas más profundas de los océanos y en los entornos volcánicos más hostiles del planeta. Su objetivo es encontrar nuevas proteínas con las que mejorar las actuales técnicas de edición genética. Esto podría abrir la puerta a una nueva era de la ciencia y la medicina en la que se curen multitud de enfermedades corrigiendo el genoma de los pacientes con una facilidad pasmosa.</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="right-images" src="img/example.jpg" alt="imagen noticia 2"/>
+            <img class="right-images" src="img/noticia2.jpg" alt="imagen noticia 2"/>
             <div class="inner_first-body-left">
-                <h2>Lorem ipsum</h2>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                <h2>Descubierta la implicación de una nueva proteína en el cáncer de hígado</h2>
+                <p>Investigadores de Cataluña han descrito el papel de una nueva proteína en el cáncer de hígado. El hallazgo, publicado en Journal of Hepatology, tiene una clara relevancia clínica ya que permitirá seleccionar los pacientes y aplicarles una terapia más específica.</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="left-images" src="img/example.jpg" alt="imagen noticia 3"/>
+            <img class="left-images" src="img/noticia3.jpg" alt="imagen noticia 3"/>
             <div class="inner_first-body-left">
-                <h2>Lorem ipsum</h2>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                <h2>Un nuevo fármaco creado en Barcelona es eficaz contra el tumor cerebral más común y agresivo</h2>
+                <p>Investigadores del Vall d'Hebron Instituto de Oncología (VHIO) han demostrado la eficacia preclínica de un nuevo fármaco inmunológico basado en un anticuerpo que es capaz de lograr la regresión del glioblastoma, el tumor cerebral más frecuente y agresivo.</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="right-images" src="img/example.jpg" alt="imagen noticia 4"/>
+            <img class="right-images" src="img/noticia4.jpg" alt="imagen noticia 4"/>
             <div class="inner_first-body-left">
-                <h2>Lorem ipsum</h2>
-                <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+                <h2>Paxlovid: así es el fármaco oral para tratar la covid-19</h2>
+                <p>Los médicos españoles contarán dentro de poco con un nuevo recurso terapéutico en la lucha contra la pandemia. Se trata del Paxlovid, el nuevo medicamento oral de Pfizer, un combinado de dos antivirales, el ritonavir y el nirmatrelvir, con resultados que indican una reducción del 89% de hospitalizaciones en pacientes de alto riesgo.</p>
             </div>
         </div>
     </div>
@@ -93,7 +93,7 @@ else
             <a href="estadisticas.php" title="link a estadisticas">Estadisticas</a>
             <a href="farmacos.php" title="link a farmacos">Farmacos</a>
             <a href="proteinas.php" title="link a proteinas">Proteinas</a>
-            <a href="php/listaUsers.php" title="link a users">Users</a>
+            <a href="php/listaUsers.php" title="link a users">Usuarios</a>
             </p>
         </div>
 

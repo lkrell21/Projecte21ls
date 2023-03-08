@@ -38,11 +38,11 @@ $resultado = mysqli_query($conexion, $sql);
 if (mysqli_num_rows($resultado) > 0) {
     echo'<form id="form" style="margin-left:0px;" method="post">
     <input type="text" value="true" />
-    <input type="text" class="search-form" placeholder="Resolució" />
+    <input type="text" class="search-form" placeholder="Resolucion" />
     <input type="text" class="search-form" placeholder="Especie" />
-     <input type="text" class="search-form" placeholder="Metode" name="metode"/>
-     <input type="text" class="search-form" placeholder="Descripció" name="descripcio"/>
-    <input type="file" class="search-form" placeholder="Image" name="imatge" style="margin-top:22px; margin-left:20px; " />
+     <input type="text" class="search-form" placeholder="Metodo" name="metode"/>
+     <input type="text" class="search-form" placeholder="Descripcion" name="descripcio"/>
+    <input type="file" class="search-form" placeholder="imagen" name="imatge" style="margin-top:22px; margin-left:20px; " />
     <input type="submit" class="search-button" value="Guardar" />
 </form>';
 
