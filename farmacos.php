@@ -65,7 +65,7 @@ else
                     <input type="text" class="search-form" placeholder="InChl" name="inchl"/>
                     <input type="date" class="search-form" placeholder="Fecha" name="fecha"/>
                     <input type="text" class="search-form" placeholder="Estado" name="estat"/>
-                    <input type="submit" class="search-button" value="Cerca" />
+                    <input type="submit" class="search-button" value="Buscar" />
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="Reset" class="search-button" />
                 </form>

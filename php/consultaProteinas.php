@@ -40,7 +40,7 @@
                     <input type="date" class="search-form" placeholder="Fecha" name="data" />
                     <input type="text" class="search-form" placeholder="Metodo" name="metode" />
                     <input type="text" class="search-form" placeholder="Codigo de la proteina" name="idProteina" />
-                    <input type="submit" class="search-button" value="Cerca" onclick='busqueda()' />
+                    <input type="submit" class="search-button" value="Buscar" onclick='busqueda()' />
                 </form>
             </div>
         </div>

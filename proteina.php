@@ -70,7 +70,7 @@ else
                         <input type="text" class="search-form" placeholder="Data" name="data" />
                         <input type="text" class="search-form" placeholder="Metode" name="metode"/>
                         <input type="text" class="search-form" placeholder="Codi de la proteïna" name="idProteina"/>
-                        <input type="submit" class="search-button" value="Cerca" />
+                        <input type="submit" class="search-button" value="Buscar" />
                         <input name="enviat" type="hidden" value="1" />
                         <input name="Enviar" type="reset" value="Reset" class="search-button" />
                     </form>
