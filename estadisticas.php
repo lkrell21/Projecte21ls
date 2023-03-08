@@ -2,6 +2,8 @@
 
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
+$rol="";
+$usuario="";
 if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
 $idUsuario=$_SESSION["idUsuario"];

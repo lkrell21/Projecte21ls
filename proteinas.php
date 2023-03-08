@@ -3,6 +3,8 @@
 error_reporting(E_ALL ^ E_NOTICE);
 if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
+$rol="";
+$usuario="";
 session_start();
 if(isset($_SESSION['usuario']) && isset($_SESSION['contrasenya']))
 {
