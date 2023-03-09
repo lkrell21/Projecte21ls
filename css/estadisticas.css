@@ -1,13 +1,14 @@
 
   .first-body {
-    height: 500px;
-    width: 700px;
+    height: auto;
+    width: 60%;
     background-color: white;
     border-radius:20px;
     margin-top: 10px;
-    margin-left: 31%;
-    margin-right:31%;
+    margin-left: 14%;
+    margin-right:14%;
     margin-bottom:10px;
+    max-height:500px;
 }
 
 .first-body .left-images{

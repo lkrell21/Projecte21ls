@@ -5,17 +5,21 @@ $sql = "SELECT COUNT(*), YEAR(FECHA) FROM farmacos GROUP BY YEAR(FECHA)";
     $labelFarmacos="";
     $labelProteinas="";
     $datosProteinas= "";
+    $datosUsuarios = "";
+    $labelUsuarios = "";
 
     $resultado = mysqli_query($conexion, $sql);
     if (mysqli_num_rows($resultado) > 0) {
         while ($row = mysqli_fetch_assoc($resultado)) {
-            $datosFarmacos = $datosFarmacos . $row["COUNT(*)"].", ";
+            $datosFarmacos = $datosFarmacos . $row["COUNT(*)"].",";
             $labelFarmacos = $labelFarmacos.'"'. $row["YEAR(FECHA)"].'",';
-            //echo "ROW: ".mysqli_num_rows($row);
         }
-        //echo "FARMACOS: ".rtrim($datosFarmacos, ' , ')."<BR>".rtrim($labelFarmacos,',');     
+        $datosFarmacos = rtrim($datosFarmacos, ',');
+        $labelFarmacos = rtrim($labelFarmacos,',');   
+        //$labelFarmacos = ltrim($labelFarmacos,'"');   
+        //echo $datosFarmacos." hola ".$labelFarmacos;
 }
-//$datosFarmacos = "";
+
 
 $sql = "SELECT COUNT(*), YEAR(FECHA) FROM proteinas GROUP BY YEAR(FECHA)";   
     $resultado = mysqli_query($conexion, $sql);
@@ -23,9 +27,20 @@ $sql = "SELECT COUNT(*), YEAR(FECHA) FROM proteinas GROUP BY YEAR(FECHA)";
         while ($row = mysqli_fetch_assoc($resultado)) {
             $datosProteinas = $datosProteinas . $row["COUNT(*)"].",";
             $labelProteinas = $labelProteinas."'". $row["YEAR(FECHA)"]."',";
+            
+        }
+        rtrim($datosProteinas, ',');
+        rtrim($labelProteinas,',');     
+}
+$sql = "SELECT COUNT(*), YEAR(fechaAlta) FROM usuarios GROUP BY YEAR(fechaAlta)";   
+    $resultado = mysqli_query($conexion, $sql);
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $datosUsuarios = $datosUsuarios . $row["COUNT(*)"].",";
+            $labelUsuarios = $labelUsuarios."'". $row["YEAR(fechaAlta)"]."',";
             //echo "ROW: ".mysqli_num_rows($row);
         }
-        //echo "PROTEINAS: ".rtrim($datosProteinas, ',')."<BR>".rtrim($labelProteinas,',');     
+        //echo $sql;     
 }
 
 error_reporting(E_ALL ^ E_NOTICE);
@@ -83,8 +98,8 @@ else
         </header>
         
         <div id="body">
-            <div class="first-body">
-                <canvas id="myChart" width="700" height="500"></canvas>
+            <div class="first-body" style="height:auto">
+                <canvas id="myChart" width="100%" heigth="auto"></canvas>
                 <script>
                     var ctx = document.getElementById('myChart').getContext('2d');
                   var chart = new Chart(ctx, {
@@ -102,16 +117,20 @@ else
                                     }
                                 }]
                             },
-                            responsive:true
+                            responsive:true,
+                            title: {
+                          display: true,
+                          text: 'Proteínas nuevas por año'
+                        }
                             }
                   });
               </script>
             </div>
             <div class="first-body">
-                <canvas id="myChart2" style="width: 700px;;height: 500px;text-align: center;"></canvas><?php echo "
+                <canvas id="myChart2" width="100%" heigth="auto" style="text-align: center;"></canvas>
                 <script>
-                    var xValues = [". $labelFarmacos."];
-                    var yValues = [".$datosFarmacos."];
+                    var xValues = [<?php echo  $labelFarmacos;?>];
+                    var yValues = [<?php echo  $datosFarmacos;?>];
                     var barColors = [
                       '#A051FF',
                       '#FFC3E5',
@@ -131,12 +150,40 @@ else
                       options: {
                         title: {
                           display: true,
-                          text: 'Farmacos nuevos'
+                          text: 'Farmacos nuevos por año'
                         }
                       }
                     });
-                    </script>";?>           
+                    </script>          
                 </div>
+                <div class="first-body">
+                <canvas id="myChart3" width="100%" heigth="auto"></canvas>
+                <script>
+                    var ctx = document.getElementById('myChart3').getContext('2d');
+                  var chart3 = new Chart(ctx, {
+                  type: 'bar',
+                  data:{
+                  datasets: [{
+                 <?php echo "data: [ ".$datosUsuarios.",],";?>
+                  backgroundColor: ['#A051FF', '#FFC3E5', '#98F59C','#FF9430'],
+                  label: 'Nuevos Usuarios'}],
+                  labels: [<?php echo $labelUsuarios;?>]},
+                  options: {scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            },
+                            responsive:true,
+                            title: {
+                          display: true,
+                          text: 'Usuarios nuevos por año'
+                        }
+                            }
+                  });
+              </script>
+            </div>
         </div>
 
     <footer class="footer">
