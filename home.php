@@ -62,21 +62,21 @@ else
             </div>
         </div>
         <div class="first-body">
-            <img class="right-images" src="img/noticia2.jpg" alt="imagen noticia 2"/>
+            <img class="left-images" src="img/noticias/noticia2.jpg" alt="imagen noticia 2"/>
             <div class="inner_first-body-left">
                 <h2>Descubierta la implicación de una nueva proteína en el cáncer de hígado</h2>
                 <p>Investigadores de Cataluña han descrito el papel de una nueva proteína en el cáncer de hígado. El hallazgo, publicado en Journal of Hepatology, tiene una clara relevancia clínica ya que permitirá seleccionar los pacientes y aplicarles una terapia más específica.</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="left-images" src="img/noticia3.jpg" alt="imagen noticia 3"/>
+            <img class="left-images" src="img/noticias/noticia3.jpg" alt="imagen noticia 3"/>
             <div class="inner_first-body-left">
                 <h2>Un nuevo fármaco creado en Barcelona es eficaz contra el tumor cerebral más común y agresivo</h2>
                 <p>Investigadores del Vall d'Hebron Instituto de Oncología (VHIO) han demostrado la eficacia preclínica de un nuevo fármaco inmunológico basado en un anticuerpo que es capaz de lograr la regresión del glioblastoma, el tumor cerebral más frecuente y agresivo.</p>
             </div>
         </div>
         <div class="first-body">
-            <img class="right-images" src="img/noticia4.jpg" alt="imagen noticia 4"/>
+            <img class="right-images" src="img/noticias/noticia4.jpg" alt="imagen noticia 4"/>
             <div class="inner_first-body-left">
                 <h2>Paxlovid: así es el fármaco oral para tratar la covid-19</h2>
                 <p>Los médicos españoles contarán dentro de poco con un nuevo recurso terapéutico en la lucha contra la pandemia. Se trata del Paxlovid, el nuevo medicamento oral de Pfizer, un combinado de dos antivirales, el ritonavir y el nirmatrelvir, con resultados que indican una reducción del 89% de hospitalizaciones en pacientes de alto riesgo.</p>

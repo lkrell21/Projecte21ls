@@ -1,5 +1,33 @@
 <?php include_once('conexionBBDD.php');
 
+$sql = "SELECT COUNT(*), YEAR(FECHA) FROM farmacos GROUP BY YEAR(FECHA)";
+    $datosFarmacos = "";
+    $labelFarmacos="";
+    $labelProteinas="";
+    $datosProteinas= "";
+
+    $resultado = mysqli_query($conexion, $sql);
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $datosFarmacos = $datosFarmacos . $row["COUNT(*)"].", ";
+            $labelFarmacos = $labelFarmacos.'"'. $row["YEAR(FECHA)"].'",';
+            //echo "ROW: ".mysqli_num_rows($row);
+        }
+        //echo "FARMACOS: ".rtrim($datosFarmacos, ' , ')."<BR>".rtrim($labelFarmacos,',');     
+}
+//$datosFarmacos = "";
+
+$sql = "SELECT COUNT(*), YEAR(FECHA) FROM proteinas GROUP BY YEAR(FECHA)";   
+    $resultado = mysqli_query($conexion, $sql);
+    if (mysqli_num_rows($resultado) > 0) {
+        while ($row = mysqli_fetch_assoc($resultado)) {
+            $datosProteinas = $datosProteinas . $row["COUNT(*)"].",";
+            $labelProteinas = $labelProteinas."'". $row["YEAR(FECHA)"]."',";
+            //echo "ROW: ".mysqli_num_rows($row);
+        }
+        //echo "PROTEINAS: ".rtrim($datosProteinas, ',')."<BR>".rtrim($labelProteinas,',');     
+}
+
 error_reporting(E_ALL ^ E_NOTICE);
 session_start();
 $rol="";
@@ -63,28 +91,36 @@ else
                   type: 'bar',
                   data:{
                   datasets: [{
-                  data: [10,18,10, 8, 4],
+                 <?php echo "data: [ ".$datosProteinas.",],";?>
                   backgroundColor: ['#A051FF', '#FFC3E5', '#98F59C','#FF9430'],
                   label: 'Nuevas Proteinas'}],
-                  labels: ['2019','2020','2021','2022']},
-                  options: {responsive: false}
+                  labels: [<?php echo $labelProteinas;?>]},
+                  options: {scales: {
+                                yAxes: [{
+                                    ticks: {
+                                        beginAtZero: true
+                                    }
+                                }]
+                            },
+                            responsive:true
+                            }
                   });
               </script>
             </div>
             <div class="first-body">
-                <canvas id="myChart2" style="width: 700px;;height: 500px;text-align: center;"></canvas>
+                <canvas id="myChart2" style="width: 700px;;height: 500px;text-align: center;"></canvas><?php echo "
                 <script>
-                    var xValues = ["2019", "2020", "2021", "2022"];
-                    var yValues = [7, 28, 19, 16,];
+                    var xValues = [". $labelFarmacos."];
+                    var yValues = [".$datosFarmacos."];
                     var barColors = [
-                      "#A051FF",
-                      "#FFC3E5",
-                      "#98F59C",
-                      "#FF9430",
+                      '#A051FF',
+                      '#FFC3E5',
+                      '#98F59C',
+                      '#FF9430',
                     ];
                 
-                    new Chart("myChart2", {
-                      type: "pie",
+                    new Chart('myChart2', {
+                      type: 'pie',
                       data: {
                         labels: xValues,
                         datasets: [{
@@ -95,11 +131,11 @@ else
                       options: {
                         title: {
                           display: true,
-                          text: "Farmacos nuevos"
+                          text: 'Farmacos nuevos'
                         }
                       }
                     });
-                    </script>            
+                    </script>";?>           
                 </div>
         </div>
 

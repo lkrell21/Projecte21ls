@@ -2,7 +2,7 @@
 error_reporting(E_ALL ^ E_NOTICE);
 if (isset($_POST['enviat'])) $sele=$_POST['enviat'];
 else $sele="0";
-$idUsuario="2";
+$idUsuario="";
 session_start();
 $idUsuario ="";
 $rol="";
